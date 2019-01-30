@@ -16,13 +16,9 @@ namespace PizzaCreator
 
         private static void DisplayMenu()
         {
-            //new order
             var neworder = "New Order";
-            //modify order
-            var modifyorder = "Modify Order";
-            //display order
+            var modifyorder = "Modify Order";          
             var displayorder = "Display Order";
-            //quit
             var quit = "Quit";
 
             while (true)
