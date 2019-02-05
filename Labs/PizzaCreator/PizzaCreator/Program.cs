@@ -51,7 +51,33 @@ namespace PizzaCreator
 
         private static void NewOrder()
         {
+            var size = "Size";
+            var small = 5;
+            var medium = 6.25;
+            var large = 8.75;
+
+            var meats = "Meats";
+            string bacon, ham, pepperoni, sausage;
+
+            var veggies = "Vegetables";
+            string blackolives, mushrooms, onions, peppers;
+
+            var sauce = "Sauce";
+            var traditional = 0;
+            var garlic = 1;
+            var oregano = 1;
+
+            var cheese = "Cheese";
+            var regular = 0;
+            var extra = 1.25;
+
+            var Delivery = "Delivery";
+            var takeout = 0;
+            var delivery = 2.5;
+
             Console.WriteLine("This is the New Order. ");
+            Console.WriteLine("Please choose a " + size);
+           
         }
         private static void ModifyOrder()
         {
