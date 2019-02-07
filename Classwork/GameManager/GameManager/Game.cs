@@ -17,5 +17,21 @@ namespace GameManager
         public decimal Price;
         public bool Owned;
         public bool Completed;
+
+        /// <summary> Validates the object. </summary>
+        /// <returns></returns>
+
+        public bool Validate(/* Game this */ )
+        {
+            //Name is required
+            if (String.IsNullOrEmpty(Name))
+                return false;
+
+            //Price >=0
+            if (Price < 0)
+                return false;
+
+            return true;
+        }
     }
 }
