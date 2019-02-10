@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Lab 1
+ * David Rojo
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +13,13 @@ namespace PizzaCreator
 {
     class Program
     {
+        private static string size;
+        private static string meats;
+        private static string veggies;
+        private static string sauce;
+        private static string cheese;
+        private static string Delivery;
+
         static void Main( string[] args )
         {
             Console.WriteLine("Hello Pizza Creator");
@@ -17,18 +29,13 @@ namespace PizzaCreator
 
         private static void DisplayMenu()
         {
-            var neworder = "New Order";
-            var modifyorder = "Modify Order";          
-            var displayorder = "Display Order";
-            var quit = "Quit";
-
             while (true)
             {
                 Console.WriteLine("Please choose one of the following: ");
-                Console.WriteLine("1. " + neworder);
-                Console.WriteLine("2. " + modifyorder);
-                Console.WriteLine("3. " + displayorder);
-                Console.WriteLine("4. " + quit);
+                Console.WriteLine("1. New order");
+                Console.WriteLine("2. Modify order");
+                Console.WriteLine("3. Display order");
+                Console.WriteLine("4. Quit");
 
                 string choice;
                 choice = Console.ReadLine();
@@ -52,50 +59,44 @@ namespace PizzaCreator
 
         private static void NewOrder()
         {
-            string size;
-            var small = 5;
-            var medium = 6.25;
-            var large = 8.75;
+            double small = 5;
+            double medium = 6.25;
+            double large = 8.75;
 
-            string meats;            
-            var bacon = .75;
-            var ham = .75;
-            var pepperoni = .75;
-            var sausage = .75;
+            double bacon = .75;
+            double ham = .75;
+            double pepperoni = .75;
+            double sausage = .75;
 
-            string veggies;
-            var blackolives = .50;
-            var mushrooms = .75;
-            var onions = .75;
-            var peppers = .75;
+            double blackolives = .50;
+            double mushrooms = .75;
+            double onions = .75;
+            double peppers = .75;
 
-            string sauce;
-            var traditional = 0;
-            var garlic = 1;
-            var oregano = 1;
+            double traditional = 0;
+            double garlic = 1;
+            double oregano = 1;
 
-            string cheese;
-            var regular = 0;
-            var extra = 1.25;
+            double regular = 0;
+            double extra = 1.25;
 
-            string Delivery;
-            var takeout = 0;
-            var delivery = 2.5;
+            double takeout = 0;
+            double delivery = 2.5;
 
-            //Console.WriteLine("This is the New Order. ");
-            //Console.WriteLine("Please choose a size");
+            Console.WriteLine("This is the New Order. ");
+            Console.WriteLine("Please choose a size");
             Console.WriteLine("Small, Medium, or Large: ");
             size = Console.ReadLine();
 
-            //Console.WriteLine("Please choose a meat:");
+            Console.WriteLine("Please choose a meat:");
             Console.WriteLine("Bacon, Ham, Pepperoni, or Sausage.");
             meats = Console.ReadLine();
 
-            //Console.WriteLine("Please choose a veggie:");
+            Console.WriteLine("Please choose a veggie:");
             Console.WriteLine("Black olives, mushrooms, onions, or peppers. ");
             veggies = Console.ReadLine();
 
-            //Console.WriteLine("Please choose a sause:");
+            Console.WriteLine("Please choose a sause:");
             Console.WriteLine("Traditional, garlic, or oregano.");
             sauce = Console.ReadLine();
 
@@ -110,9 +111,9 @@ namespace PizzaCreator
         {
             Console.WriteLine("This is the Modified order. ");
         }
-        private static void DisplayOrder( string size, string meats, string veggies, string sauce, string cheese, string Delivery)
+        private static void DisplayOrder()
         {
-            var price = (meats + veggies + sauce + cheese + Delivery);
+            double price = (meats + veggies + sauce + cheese + Delivery);
 
             Console.WriteLine("This is your order. ");
 
