@@ -12,6 +12,7 @@ namespace PizzaCreator
         {
             Console.WriteLine("Hello Pizza Creator");
             DisplayMenu();
+            DisplayOrder();
         }
 
         private static void DisplayMenu()
@@ -51,41 +52,79 @@ namespace PizzaCreator
 
         private static void NewOrder()
         {
-            var size = "Size";
+            string size;
             var small = 5;
             var medium = 6.25;
             var large = 8.75;
 
-            var meats = "Meats";
-            string bacon, ham, pepperoni, sausage;
+            string meats;            
+            var bacon = .75;
+            var ham = .75;
+            var pepperoni = .75;
+            var sausage = .75;
 
-            var veggies = "Vegetables";
-            string blackolives, mushrooms, onions, peppers;
+            string veggies;
+            var blackolives = .50;
+            var mushrooms = .75;
+            var onions = .75;
+            var peppers = .75;
 
-            var sauce = "Sauce";
+            string sauce;
             var traditional = 0;
             var garlic = 1;
             var oregano = 1;
 
-            var cheese = "Cheese";
+            string cheese;
             var regular = 0;
             var extra = 1.25;
 
-            var Delivery = "Delivery";
+            string Delivery;
             var takeout = 0;
             var delivery = 2.5;
 
-            Console.WriteLine("This is the New Order. ");
-            Console.WriteLine("Please choose a " + size);
-           
+            //Console.WriteLine("This is the New Order. ");
+            //Console.WriteLine("Please choose a size");
+            Console.WriteLine("Small, Medium, or Large: ");
+            size = Console.ReadLine();
+
+            //Console.WriteLine("Please choose a meat:");
+            Console.WriteLine("Bacon, Ham, Pepperoni, or Sausage.");
+            meats = Console.ReadLine();
+
+            //Console.WriteLine("Please choose a veggie:");
+            Console.WriteLine("Black olives, mushrooms, onions, or peppers. ");
+            veggies = Console.ReadLine();
+
+            //Console.WriteLine("Please choose a sause:");
+            Console.WriteLine("Traditional, garlic, or oregano.");
+            sauce = Console.ReadLine();
+
+            Console.WriteLine("Regular or extra cheese? ");
+            cheese = Console.ReadLine();
+
+            Console.WriteLine("Delivery or takeout?");
+            Delivery = Console.ReadLine();
+
         }
         private static void ModifyOrder()
         {
             Console.WriteLine("This is the Modified order. ");
         }
-        private static void DisplayOrder()
+        private static void DisplayOrder( string size, string meats, string veggies, string sauce, string cheese, string Delivery)
         {
+            var price = (meats + veggies + sauce + cheese + Delivery);
+
             Console.WriteLine("This is your order. ");
+
+            Console.WriteLine("Size: " + "\t\t" + size);
+            Console.WriteLine("Meats: " + "\t\t" + meats);
+            Console.WriteLine("Veggies: " + "\t\t" + veggies);
+            Console.WriteLine("Sauce: " + "\t\t" + sauce);
+            Console.WriteLine("Cheese: " + "\t\t" + cheese);
+            Console.WriteLine("Delivery: " + "\t\t" + Delivery);
+            Console.WriteLine("------------------------------");
+            Console.WriteLine("Total: " + "          " + price);
+
         }
     }
 }
