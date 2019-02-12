@@ -30,13 +30,13 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._miFileExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.gamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._miGameAdd = new System.Windows.Forms.ToolStripMenuItem();
             this._miGameEdit = new System.Windows.Forms.ToolStripMenuItem();
-            this._miGameDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this._miGameDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._miHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -61,6 +61,13 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
             // 
+            // _miFileExit
+            // 
+            this._miFileExit.Name = "_miFileExit";
+            this._miFileExit.Size = new System.Drawing.Size(180, 22);
+            this._miFileExit.Text = "E&xit";
+            this._miFileExit.Click += new System.EventHandler(this.OnFileExit);
+            // 
             // gamesToolStripMenuItem
             // 
             this.gamesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -72,6 +79,30 @@
             this.gamesToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.gamesToolStripMenuItem.Text = "&Games";
             // 
+            // _miGameAdd
+            // 
+            this._miGameAdd.Name = "_miGameAdd";
+            this._miGameAdd.Size = new System.Drawing.Size(180, 22);
+            this._miGameAdd.Text = "&Add";
+            this._miGameAdd.Click += new System.EventHandler(this.OnGameAdd);
+            // 
+            // _miGameEdit
+            // 
+            this._miGameEdit.Name = "_miGameEdit";
+            this._miGameEdit.Size = new System.Drawing.Size(180, 22);
+            this._miGameEdit.Text = "&Edit";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
+            // _miGameDelete
+            // 
+            this._miGameDelete.Name = "_miGameDelete";
+            this._miGameDelete.Size = new System.Drawing.Size(180, 22);
+            this._miGameDelete.Text = "&Delete";
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -80,36 +111,6 @@
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "&Help";
             // 
-            // _miFileExit
-            // 
-            this._miFileExit.Name = "_miFileExit";
-            this._miFileExit.Size = new System.Drawing.Size(180, 22);
-            this._miFileExit.Text = "E&xit";
-            this._miFileExit.Click += new System.EventHandler(this.OnFileExit);
-            // 
-            // _miGameAdd
-            // 
-            this._miGameAdd.Name = "_miGameAdd";
-            this._miGameAdd.Size = new System.Drawing.Size(180, 22);
-            this._miGameAdd.Text = "&Add";
-            // 
-            // _miGameEdit
-            // 
-            this._miGameEdit.Name = "_miGameEdit";
-            this._miGameEdit.Size = new System.Drawing.Size(180, 22);
-            this._miGameEdit.Text = "&Edit";
-            // 
-            // _miGameDelete
-            // 
-            this._miGameDelete.Name = "_miGameDelete";
-            this._miGameDelete.Size = new System.Drawing.Size(180, 22);
-            this._miGameDelete.Text = "&Delete";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
-            // 
             // _miHelpAbout
             // 
             this._miHelpAbout.Name = "_miHelpAbout";
@@ -117,14 +118,14 @@
             this._miHelpAbout.Text = "&About";
             this._miHelpAbout.Click += new System.EventHandler(this.OnHelpAbout);
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Form1";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
