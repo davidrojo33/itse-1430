@@ -34,6 +34,9 @@ namespace GameManager.Host.Winforms
                 /* is empty */
                 ;
 
+            var isCool = game.IsCoolGame;
+            //game.IsCoolGame = false;
+
             //Validate(game)
             game.Validate();
 
@@ -42,7 +45,9 @@ namespace GameManager.Host.Winforms
 
             //var str = game.Publisher;            
             //Decimal.TryParse("45.99", out game.Price);
-
+            //event EventHandler Click;
+            //delegate EventHandler void ( Object, EventArgs )
+            //_miGameAdd.Click += OnGameAdd;
         }
 
         private void OnFileExit( object sender, EventArgs e )
@@ -55,14 +60,135 @@ namespace GameManager.Host.Winforms
 
         private void OnHelpAbout( object sender, EventArgs e )
         {
-            MessageBox.Show("Help");
+            var form = new AboutBox();
+            form.ShowDialog();
+        }
+
+        private void BindList ()
+        {
+            //Bind games to listbox
+            _ListGames.Items.Clear();
+
+            _ListGames.DisplayMember = nameof(Game.Name);
+
+            foreach (var game in _games)
+            {
+                if (game != null)
+                _ListGames.Items.Add(game);
+            };
         }
 
         private void OnGameAdd( object sender, EventArgs e )
         {
             //Display UI
+            var form = new GameForm();
 
-            //If ok then "add" to system
+            //Modeless
+            //form.Show();
+
+            //Modal
+            if (form.ShowDialog(this) != DialogResult.OK)
+                return;
+
+            //TODO: Add
+            _games[GetNextEmptyGame()] = form.Game;
+            BindList();
+        }
+
+        //HACK: Find first spot in array with no game
+        private int GetNextEmptyGame()
+        {
+            for (var index = 0; index < _games.Length; ++index)
+                if (_games[index] == null)
+                    return index;
+
+            return -1;
+        }
+
+        private Game[] _games = new Game[100];
+
+        private void OnGameEdit( object sender, EventArgs e )
+        {
+            var form = new GameForm();
+
+            var game = GetSelectedGame();
+            if (game == null)
+                return;
+
+            //Game to edit
+            form.Game = game;
+
+            if (form.ShowDialog(this) != DialogResult.OK)
+                return;
+
+            //TODO: Fix to edit, not add
+            UpdateGame(game, form.Game);
+            
+            BindList();
+        }
+
+        private void UpdateGame ( Game oldGame, Game newGame)
+        {
+            for (var index = 0; index < _games.Length; ++index)
+            {
+                if (_games[index] == oldGame)
+                {
+                    _games[index] = newGame;
+                    break;
+                };
+            };
+        }
+
+        private void OnGameDelete( object sender, EventArgs e )
+        {
+            //Get selected game, if any
+            var selected = GetSelectedGame();
+            if (selected == null)
+                return;
+
+            //Display confirmation
+            if (MessageBox.Show(this, $"Are you sure you want to delete {selected.Name}?",
+                               "Confirm Delete", MessageBoxButtons.YesNo,
+                               MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
+
+            //TODO: Delete
+            DeleteGame(selected);
+            BindList();
+            //_game = null;
+        }
+
+        private void DeleteGame ( Game game)
+        {
+            for (var index = 0; index < _games.Length; ++index)
+            {
+                if (_games[index] == game)
+                {
+                    _games[index] = null;
+                    break;
+                };
+            };
+        }
+
+        private Game GetSelectedGame()
+        {
+            var value = _ListGames.SelectedItem;
+
+            //C-style cast - don't do this
+            //var game = (Game)value;
+
+            //Preferred - null if not valid
+            var game = value as Game;
+
+            //Type check
+            var game2 = (value is Game) ? (Game)value : null;
+
+            return _ListGames.SelectedItem as Game;
+        }
+
+        private void OnGameSelected( object sender, EventArgs e )
+        {
+
         }
     }
 }
