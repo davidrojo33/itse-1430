@@ -29,21 +29,22 @@ namespace GameManager.Host.Winforms
             var name = game.Name;
             if (name.Length == 0)
                 /* is empty*/
-                ;
 
-            //Checking for null - long way
-            if (game.Name != null && game.Name.Length == 0)
-                ;
 
-            //Short way
-            // game.Name.Length -> int
-            // game.Name?.Length -> int?
-            if ((game.Name?.Length ?? 0) == 0)
-                ;
+                //Checking for null - long way
+                if (game.Name != null && game.Name.Length == 0)
 
-            if (game.Name.Length == 0)
+
+                    //Short way
+                    // game.Name.Length -> int
+                    // game.Name?.Length -> int?
+                    if ((game.Name?.Length ?? 0) == 0)
+
+
+                        if (game.Name.Length == 0)
+                            ;
                 /* is empty */
-                ;
+                
 
             var isCool = game.IsCoolGame;
             //game.IsCoolGame = false;
@@ -80,7 +81,7 @@ namespace GameManager.Host.Winforms
             //Bind games to listbox
             _ListGames.Items.Clear();
 
-            _ListGames.DisplayMember = nameof(Game.Name);
+            //_ListGames.DisplayMember = nameof(Game.Name);
 
             foreach (var game in _games)
             {
@@ -200,6 +201,16 @@ namespace GameManager.Host.Winforms
         private void OnGameSelected( object sender, EventArgs e )
         {
 
+        }
+
+        protected override void OnFormClosing( FormClosingEventArgs e )
+        {
+            if (MessageBox.Show(this, "Are you sure?", "Close", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                e.Cancel = true;
+                return;
+            }
+            base.OnFormClosing(e);
         }
     }
 }
