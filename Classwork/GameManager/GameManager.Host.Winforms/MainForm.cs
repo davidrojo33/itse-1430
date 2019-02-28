@@ -81,7 +81,7 @@ namespace GameManager.Host.Winforms
             //Bind games to listbox
             _ListGames.Items.Clear();
 
-            //_ListGames.DisplayMember = nameof(Game.Name);
+            _ListGames.DisplayMember = nameof(Game.Name);
 
             foreach (var game in _games)
             {
