@@ -9,6 +9,8 @@ namespace GameManager
     /// <summary>Represents a game.</summary>
     public class Game
     {
+        public int Id { get; set; }
+
         //Ctors
 
         //Default, no return type

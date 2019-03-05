@@ -27,14 +27,14 @@ namespace GameManager.Host.Winforms
             if (!ValidateChildren())
                 return;
 
-            var Game = SaveData();
+            var game = SaveData();
             
             //Validate at business level
-            if (!Game.Validate())
+            if (!game.Validate())
             {
                 MessageBox.Show("Game not valid.", "Error", MessageBoxButtons.OK);
             }
-            Game = Game;
+            Game = game;
             DialogResult = DialogResult.OK;
             Close();
         }
