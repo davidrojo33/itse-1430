@@ -7,33 +7,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CharacterCreator;
 
 namespace CharacterCreator.Winforms
 {
     public partial class CharacterCreator : Form
     {
+
         public CharacterCreator()
         {
             InitializeComponent();
         }
 
-        //public Character Character { get; set; }
+        public Character Character { get; set; }
 
         private void OnSave( object sender, EventArgs e )
         {
             if (!ValidateChildren())
                 return;
 
-            //var character = SaveData();
+            var character = SaveData();
 
-            //if (!character.Validate())
-            //{
-            //    MessageBox.Show("Character not valid.", "Error", MessageBoxButtons.OK);
+            if (!character.Validate())
+            {
+                MessageBox.Show("Character not valid.", "Error", MessageBoxButtons.OK);
 
-            //    character = character;
-            //    DialogResult = DialogResult.OK;
-            //    Close();
-            //}
+                character = character;
+                DialogResult = DialogResult.OK;
+                Close();
+            }
         }
 
         private void OnCancel( object sender, EventArgs e)
@@ -42,14 +44,14 @@ namespace CharacterCreator.Winforms
             Close();
         }
 
-        //private void LoadData( Character character)
-        //{
-            
-        //}
+        private void LoadData( Character character )
+        {
 
-        //private Character SaveData()
-        //{
+        }
 
-        //}
+        private Character SaveData()
+        {
+
+        }
     }
 }
