@@ -71,9 +71,87 @@ namespace CharacterCreator.Winforms
             MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void OnSafeAdd ( CharacterCreator form)
+        private void OnSafeAdd( CharacterCreator form )
         {
-            
+            try
+            {
+                _characters.Add(form.Character);
+            } catch (NotImplementedException e)
+            {
+                throw new Exception("Not implemented yet", e);
+            } catch (Exception e)
+            {
+                throw;
+            };
+        };
+    }
+
+    private void OnCharacterEdit( object sender, EventArgs e)
+    {
+        var from = new CharacterForm();
+
+        var character = GetSelectedCharacter();
+        if (character == null)
+            return;
+
+        form.Character = character;
+        
+        while (true)
+        {
+            if (form.ShowDialog(this) != DialogResult.OK)
+                return;
+
+            try
+            {
+                _characters.Update(character.Id, form.Character);
+                break;
+            }catch (Exception ex)
+            {
+                DisplayError(ex);
+            };
+        };
+
+        BindList();
+    }
+
+    private void OnCharacterDelete( object sender, EventArgs e)
+    {
+        var selected = GetSelectedCharacter();
+        if (selected == null)
+            return;
+
+        if (MessageBox.Show(this, $"Are you sure you want to delete {selected.Name}?",
+            "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+            return;
+
+        _characters.Delete(selected.Id);
+        Bindlist();
+    }
+
+    private Character GetSelectedCharacter()
+    {
+        var value = _ListCharacters.SelectedItem;
+
+        var character = value as Character;
+
+        var character2 = (value is Character) ? (Character)value : null;
+
+        return _ListCharacters.SelectedItem as Character;
+    }
+
+    private void OnGameSelected( object sender, EventArgs e)
+    {
+
+    }
+
+    protected override void OnFormClosing (FormClosingEventArgs e )
+    {
+        if (MessageBox.Show(this, "Are you sure?", "Close", MessageBoxButtons.YesNo) ==
+            DialogResult.No)
+        {
+            e.Cancel = true;
+            return;
         }
+        base.OnFormClosing(e); 
     }
 }

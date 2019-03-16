@@ -32,7 +32,7 @@ namespace CharacterCreator.Winforms
             {
                 MessageBox.Show("Character not valid.", "Error", MessageBoxButtons.OK);
 
-                character = character;
+                Character = character;
                 DialogResult = DialogResult.OK;
                 Close();
             }
@@ -46,12 +46,24 @@ namespace CharacterCreator.Winforms
 
         private void LoadData( Character character )
         {
+            _txtName.Text = character.Name;
+            _txtProfession.Text = character.Profession;
+            _txtRace.Text = character.Race;
+            _txtAttributes.Text = character.Attributes;
 
         }
 
         private Character SaveData()
         {
+            var character = new Character();
+            character.Name = _txtName.Text;
+            character.Profession = _txtProfession.Text;
+            character.Race = _txtRace.Text;
+            character.Attributes = _txtProfession.Text;
 
+            return character;
         }
+
+        
     }
 }

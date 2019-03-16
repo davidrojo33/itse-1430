@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this._txtName = new System.Windows.Forms.Label();
+            this._txtProfession = new System.Windows.Forms.Label();
+            this._txtRace = new System.Windows.Forms.Label();
+            this._txtAttributes = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -40,41 +40,41 @@
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // _txtName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Name";
+            this._txtName.AutoSize = true;
+            this._txtName.Location = new System.Drawing.Point(32, 29);
+            this._txtName.Name = "_txtName";
+            this._txtName.Size = new System.Drawing.Size(35, 13);
+            this._txtName.TabIndex = 0;
+            this._txtName.Text = "Name";
             // 
-            // label2
+            // _txtProfession
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 72);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Profession";
+            this._txtProfession.AutoSize = true;
+            this._txtProfession.Location = new System.Drawing.Point(32, 72);
+            this._txtProfession.Name = "_txtProfession";
+            this._txtProfession.Size = new System.Drawing.Size(56, 13);
+            this._txtProfession.TabIndex = 1;
+            this._txtProfession.Text = "Profession";
             // 
-            // label3
+            // _txtRace
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 114);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Race";
+            this._txtRace.AutoSize = true;
+            this._txtRace.Location = new System.Drawing.Point(32, 114);
+            this._txtRace.Name = "_txtRace";
+            this._txtRace.Size = new System.Drawing.Size(33, 13);
+            this._txtRace.TabIndex = 2;
+            this._txtRace.Text = "Race";
             // 
-            // label4
+            // _txtAttributes
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(32, 156);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Attributes";
+            this._txtAttributes.AutoSize = true;
+            this._txtAttributes.Location = new System.Drawing.Point(32, 156);
+            this._txtAttributes.Name = "_txtAttributes";
+            this._txtAttributes.Size = new System.Drawing.Size(51, 13);
+            this._txtAttributes.TabIndex = 3;
+            this._txtAttributes.Text = "Attributes";
             // 
             // textBox1
             // 
@@ -135,10 +135,10 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this._txtAttributes);
+            this.Controls.Add(this._txtRace);
+            this.Controls.Add(this._txtProfession);
+            this.Controls.Add(this._txtName);
             this.Name = "CharacterCreator";
             this.Text = "CharacterCreator";
             this.ResumeLayout(false);
@@ -148,10 +148,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label _txtName;
+        private System.Windows.Forms.Label _txtProfession;
+        private System.Windows.Forms.Label _txtRace;
+        private System.Windows.Forms.Label _txtAttributes;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;

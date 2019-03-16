@@ -11,6 +11,11 @@ namespace CharacterCreator
 
         public int Id { get; set; }
 
+        public Character()
+        {
+
+        }
+
         public Character (string name)
         {
             Name = name;
@@ -32,7 +37,7 @@ namespace CharacterCreator
 
         private string _profession = "";
 
-        private string Race
+        public string Race
         {
             get { return _race ?? ""; }
             set { _race = value; }
@@ -40,7 +45,7 @@ namespace CharacterCreator
 
         private string _race = "";
 
-        private string Attributes
+        public string Attributes
         {
             get { return _attributes ?? ""; }
             set { _attributes = value; }
