@@ -94,7 +94,7 @@ namespace CharacterCreator.Winforms
 
         private void OnCharacterEdit( object sender, EventArgs e )
         {
-            var from = new CharacterCreatorForm();
+            var form = new CharacterCreatorForm();
 
             var character = GetSelectedCharacter();
             if (character == null)
@@ -143,11 +143,6 @@ namespace CharacterCreator.Winforms
             var character2 = (value is Character) ? (Character)value : null;
 
             return _ListCharacters.SelectedItem as Character;
-        }
-
-        private void OnGameSelected( object sender, EventArgs e )
-        {
-
         }
 
         protected override void OnFormClosing( FormClosingEventArgs e )

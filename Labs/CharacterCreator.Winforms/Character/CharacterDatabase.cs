@@ -74,7 +74,7 @@ namespace CharacterCreator
                     ++count;
 
             var tempIndex = 0;
-            var temp = new CharacterCreator[count];
+            var temp = new Character[count];
             for (var index = 0; index < _items.Length; ++index)
                 if (_items[index] != null)
                     temp[tempIndex++] = Clone(_items[index]);
@@ -108,7 +108,7 @@ namespace CharacterCreator
 
         private Character Clone( Character character )
         {
-            var newCharacter = new CharacterCreator();
+            var newCharacter = new Character();
             Clone(newCharacter, character);
 
             return newCharacter;
@@ -141,7 +141,7 @@ namespace CharacterCreator
             return -1;
         }
 
-        private readonly Character[] _items = new CharacterCreator[100];
+        private readonly Character[] _items = new Character[100];
         private int _nextId = 0;
     }
 }
