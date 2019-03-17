@@ -75,7 +75,7 @@ namespace CharacterCreator.Winforms
             MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void OnSafeAdd( CharacterCreator form )
+        private void OnSafeAdd( CharacterForm form )
         {
             try
             {
@@ -159,11 +159,6 @@ namespace CharacterCreator.Winforms
                 return;
             }
             base.OnFormClosing(e);
-        }
-
-        private void menuStrip1_ItemClicked( object sender, ToolStripItemClickedEventArgs e )
-        {
-
         }
     }
 }
