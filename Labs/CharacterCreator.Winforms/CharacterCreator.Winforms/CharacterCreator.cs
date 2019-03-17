@@ -11,10 +11,10 @@ using CharacterCreator;
 
 namespace CharacterCreator.Winforms
 {
-    public partial class CharacterCreator : Form
+    public partial class CharacterCreatorForm : Form
     {
 
-        public CharacterCreator()
+        public CharacterCreatorForm()
         {
             InitializeComponent();
         }

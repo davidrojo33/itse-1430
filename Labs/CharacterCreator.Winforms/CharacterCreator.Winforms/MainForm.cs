@@ -48,7 +48,7 @@ namespace CharacterCreator.Winforms
 
         private void OnCharacterAdd( object sender, EventArgs e )
         {
-            var form = new CharacterForm();
+            var form = new CharacterCreatorForm();
 
             while (true)
             {
@@ -75,7 +75,7 @@ namespace CharacterCreator.Winforms
             MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void OnSafeAdd( CharacterForm form )
+        private void OnSafeAdd( CharacterCreatorForm form )
         {
             try
             {
@@ -94,7 +94,7 @@ namespace CharacterCreator.Winforms
 
         private void OnCharacterEdit( object sender, EventArgs e )
         {
-            var from = new CharacterForm();
+            var from = new CharacterCreatorForm();
 
             var character = GetSelectedCharacter();
             if (character == null)

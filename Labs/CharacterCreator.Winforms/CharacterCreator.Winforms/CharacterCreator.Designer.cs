@@ -1,6 +1,6 @@
 ﻿namespace CharacterCreator.Winforms
 {
-    partial class CharacterCreator
+    partial class CharacterCreatorForm
     {
         /// <summary>
         /// Required designer variable.
