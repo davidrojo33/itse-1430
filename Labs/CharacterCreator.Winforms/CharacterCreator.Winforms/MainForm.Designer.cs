@@ -69,14 +69,23 @@ namespace CharacterCreator.Winforms
             this.fileToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileToolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.exigtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(284, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(284, 23);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.Click += new System.EventHandler(this.OnFileExit);
@@ -134,9 +143,9 @@ namespace CharacterCreator.Winforms
             // 
             this._ListCharacters.Dock = System.Windows.Forms.DockStyle.Fill;
             this._ListCharacters.FormattingEnabled = true;
-            this._ListCharacters.Location = new System.Drawing.Point(0, 24);
+            this._ListCharacters.Location = new System.Drawing.Point(0, 23);
             this._ListCharacters.Name = "_ListCharacters";
-            this._ListCharacters.Size = new System.Drawing.Size(284, 387);
+            this._ListCharacters.Size = new System.Drawing.Size(284, 388);
             this._ListCharacters.TabIndex = 1;
             // 
             // _ListItems
@@ -353,6 +362,64 @@ namespace CharacterCreator.Winforms
             this.helpToolStripMenuItem5.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem5.Text = "Help";
             // 
+            // fileToolStripMenuItem6
+            // 
+            this.fileToolStripMenuItem6.Name = "fileToolStripMenuItem6";
+            this.fileToolStripMenuItem6.Size = new System.Drawing.Size(37, 19);
+            this.fileToolStripMenuItem6.Text = "File";
+            // 
+            // editToolStripMenuItem7
+            // 
+            this.editToolStripMenuItem7.Name = "editToolStripMenuItem7";
+            this.editToolStripMenuItem7.Size = new System.Drawing.Size(39, 19);
+            this.editToolStripMenuItem7.Text = "Edit";
+            // 
+            // helpToolStripMenuItem6
+            // 
+            this.helpToolStripMenuItem6.Name = "helpToolStripMenuItem6";
+            this.helpToolStripMenuItem6.Size = new System.Drawing.Size(44, 19);
+            this.helpToolStripMenuItem6.Text = "Help";
+            // 
+            // exigtToolStripMenuItem
+            // 
+            this.exigtToolStripMenuItem.Name = "exigtToolStripMenuItem";
+            this.exigtToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.exigtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exigtToolStripMenuItem.Text = "Exit";
+            this.exigtToolStripMenuItem.Click += new System.EventHandler(this.OnFileExit);
+            // 
+            // newToolStripMenuItem4
+            // 
+            this.newToolStripMenuItem4.Name = "newToolStripMenuItem4";
+            this.newToolStripMenuItem4.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.newToolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem4.Text = "New";
+            this.newToolStripMenuItem4.Click += new System.EventHandler(this.OnCharacterAdd);
+            // 
+            // editToolStripMenuItem8
+            // 
+            this.editToolStripMenuItem8.Name = "editToolStripMenuItem8";
+            this.editToolStripMenuItem8.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D0)));
+            this.editToolStripMenuItem8.Size = new System.Drawing.Size(180, 22);
+            this.editToolStripMenuItem8.Text = "Edit";
+            this.editToolStripMenuItem8.Click += new System.EventHandler(this.OnCharacterEdit);
+            // 
+            // deleteToolStripMenuItem3
+            // 
+            this.deleteToolStripMenuItem3.Name = "deleteToolStripMenuItem3";
+            this.deleteToolStripMenuItem3.ShortcutKeys = System.Windows.Forms.Keys.Delete;
+            this.deleteToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.deleteToolStripMenuItem3.Text = "Delete";
+            this.deleteToolStripMenuItem3.DoubleClick += new System.EventHandler(this.OnCharacterDelete);
+            // 
+            // aboutToolStripMenuItem4
+            // 
+            this.aboutToolStripMenuItem4.Name = "aboutToolStripMenuItem4";
+            this.aboutToolStripMenuItem4.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+            this.aboutToolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem4.Text = "About";
+            this.aboutToolStripMenuItem4.Click += new System.EventHandler(this.OnHelpAbout);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -420,6 +487,14 @@ namespace CharacterCreator.Winforms
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem6;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem6;
+        private System.Windows.Forms.ToolStripMenuItem exigtToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem7;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem8;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem6;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem4;
     }
 }
 
