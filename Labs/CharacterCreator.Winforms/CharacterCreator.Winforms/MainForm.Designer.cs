@@ -1,4 +1,6 @@
-﻿namespace CharacterCreator.Winforms
+﻿using System;
+
+namespace CharacterCreator.Winforms
 {
     partial class MainForm
     {
@@ -64,6 +66,10 @@
             this.addToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -329,6 +335,24 @@
             this.aboutToolStripMenuItem3.Text = "About";
             this.aboutToolStripMenuItem3.Click += new System.EventHandler(this.OnHelpAbout);
             // 
+            // fileToolStripMenuItem5
+            // 
+            this.fileToolStripMenuItem5.Name = "fileToolStripMenuItem5";
+            this.fileToolStripMenuItem5.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem5.Text = "File";
+            // 
+            // editToolStripMenuItem6
+            // 
+            this.editToolStripMenuItem6.Name = "editToolStripMenuItem6";
+            this.editToolStripMenuItem6.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem6.Text = "Edit";
+            // 
+            // helpToolStripMenuItem5
+            // 
+            this.helpToolStripMenuItem5.Name = "helpToolStripMenuItem5";
+            this.helpToolStripMenuItem5.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem5.Text = "Help";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -343,9 +367,16 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CharacterCreator";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void MainForm_Load( object sender, EventArgs e )
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
@@ -386,6 +417,9 @@
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem6;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem5;
     }
 }
 
