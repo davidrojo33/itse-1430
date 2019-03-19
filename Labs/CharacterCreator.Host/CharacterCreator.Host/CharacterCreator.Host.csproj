@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{26C9E9D6-3E82-44C0-8450-7F10B4EBFA2A}</ProjectGuid>
+    <ProjectGuid>{BCA2C45F-29E2-480B-946E-1F28D174DD68}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>CharacterCreator.Winforms</RootNamespace>
-    <AssemblyName>CharacterCreator.Winforms</AssemblyName>
+    <RootNamespace>CharacterCreator.Host</RootNamespace>
+    <AssemblyName>CharacterCreator.Host</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,17 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutBox.cs">
+    <Compile Include="AboutBox1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AboutBox.Designer.cs">
-      <DependentUpon>AboutBox.cs</DependentUpon>
+    <Compile Include="AboutBox1.Designer.cs">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
-    <Compile Include="CharacterCreator.cs">
+    <Compile Include="CharacterForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CharacterCreator.Designer.cs">
-      <DependentUpon>CharacterCreator.cs</DependentUpon>
+    <Compile Include="CharacterForm.Designer.cs">
+      <DependentUpon>CharacterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -66,11 +66,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AboutBox.resx">
-      <DependentUpon>AboutBox.cs</DependentUpon>
+    <EmbeddedResource Include="AboutBox1.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CharacterCreator.resx">
-      <DependentUpon>CharacterCreator.cs</DependentUpon>
+    <EmbeddedResource Include="CharacterForm.resx">
+      <DependentUpon>CharacterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -98,8 +98,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Character\CharacterCreator.csproj">
-      <Project>{583d7b9a-dd67-41ee-8e31-af759208bfb9}</Project>
+    <ProjectReference Include="..\CharacterCreator\CharacterCreator.csproj">
+      <Project>{5558ab72-8fcf-4f7e-9224-6f24b7908a2b}</Project>
       <Name>CharacterCreator</Name>
     </ProjectReference>
   </ItemGroup>
