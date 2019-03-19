@@ -61,5 +61,29 @@ namespace CharacterCreator.Host
 
             return character;
         }
+
+        protected override void OnLoad( EventArgs e )
+        {
+            //this.OnLoad(e);
+            base.OnLoad(e);
+
+            //Init UI if editing a game
+            if (Character != null)
+                LoadData(Character);
+
+            ValidateChildren();
+        }
+
+        /*private void OnValidateName( object sender, System.ComponentModel.CancelEventArgs e )
+        {
+            var tb = sender as TextBox;
+
+            if (tb.Text.Length == 0)
+            {
+                //_errors.SetError(tb, "Name is required.");
+                e.Cancel = true;
+            } else
+               // _errors.SetError(tb, "");
+        }*/
     }
 }
