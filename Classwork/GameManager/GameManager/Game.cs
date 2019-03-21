@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace GameManager
 {
     /// <summary>Represents a game.</summary>
-    public class Game
+    public class Game : IValidatableObject
     {
         public int Id { get; set; }
 
@@ -95,45 +95,48 @@ namespace GameManager
         {
             return Name;
         }
-
-        //Can init the data as well
-        //public string[] Genres { get; set; }
-
-        // Don't use array properties because they require cloning
-        // and are inefficient
-        //public string[] Genres
-        //{
-        //    get 
-        //    {
-        //        var temp = new string[_genres.Length];
-        //        Array.Copy(_genres, temp, _genres.Length);
-        //        return temp;
-        //    }
-        //}
-        //private string[] _genres;
-
-        //public string[] genres = new string[10];
-        //private decimal realPrice = Price;
-
-        /// <summary>Validates the object.</summary>
-        /// <returns>true if valid or false otherwise.</returns>
-        public bool Validate( /* Game this */ )
+       
+        public IEnumerable<ValidationResult> Validate( ValidationContext validationContext )
         {
-            //Redundant dude
-            //var str = this.Name;
+            var items = new List<ValidationResult>();
 
             //Name is required
             if (String.IsNullOrEmpty(Name))
-                return false;
+                items.Add(new ValidationResult("Name is required.", new[] { nameof(Name) }));
 
             //Price >= 0
             if (Price < 0)
-                return false;
+                items.Add(new ValidationResult("Price must be >= 0.", new[] { nameof(Price) }));
 
-            //Only if you need to pass the instance to somebody else
-            //MyType.Foo(this);
-
-            return true;
+            return items;
         }
     }
+
+    public interface IValidatableObject
+    {
+    }
 }
+
+
+
+//Can init the data as well
+//public string[] Genres { get; set; }
+
+// Don't use array properties because they require cloning
+// and are inefficient
+//public string[] Genres
+//{
+//    get 
+//    {
+//        var temp = new string[_genres.Length];
+//        Array.Copy(_genres, temp, _genres.Length);
+//        return temp;
+//    }
+//}
+//private string[] _genres;
+
+//public string[] genres = new string[10];
+//private decimal realPrice = Price;
+
+/// <summary>Validates the object.</summary>
+/// <returns>true if valid or false otherwise.</returns>

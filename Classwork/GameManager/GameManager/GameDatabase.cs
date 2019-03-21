@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace GameManager
 {
-    public class GameDatabase
+    public class IGameDatabase : IGameDatabase1
     {
-        public GameDatabase()
+        public IGameDatabase()
         {
             //var game = new Game();
             //game.Name = "DOOM";
@@ -54,8 +54,12 @@ namespace GameManager
                 throw new ArgumentException(nameof(game));
 
             //Games must be valid
-            if (!game.Validate())
-                throw new Exception("Game is invalid");
+            new ObjectValidator().Validate(game);
+            //if (!game.Validate())
+            //  throw new Exception("Game is invalid.");
+
+            //if (!game.Validate())
+              //  throw new Exception("Game is invalid");
 
             //Game names must be unique
             var existing = GetIndex(game.Name);
@@ -106,10 +110,9 @@ namespace GameManager
             return null;
         }
 
-        public Game[] GetAll()
+        //public Game[] GetAll()
+        public IEnumerable<Game> GetAll()
         {
-            //var item = _items[0];
-
             ////How many games?
             //int count = 0;
             //foreach (var item in _items)
@@ -121,11 +124,9 @@ namespace GameManager
             //for (var index = 0; index < _items.Length; ++index)
             //    if (_items[index] != null)
             //        temp[tempIndex++] = Clone(_items[index]);
-
             var temp = new List<Game>();
             foreach (var item in _items)
                 temp.Add(Clone(item));
-
 
             return temp.ToArray();
         }
@@ -137,8 +138,10 @@ namespace GameManager
                 throw new ArgumentOutOfRangeException(nameof(id), "Id must be > 0.");
             if (game == null)
                 throw new ArgumentNullException(nameof(game));
-            if (!game.Validate())
-                throw new Exception("Game is invalid.");
+
+            new ObjectValidator().Validate(game);
+            //if (!game.Validate())
+            //    throw new Exception("Game is invalid.");
 
             var index = GetIndex(id);
             if (index < 0)

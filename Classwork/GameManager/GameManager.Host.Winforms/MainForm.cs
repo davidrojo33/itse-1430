@@ -45,15 +45,24 @@ namespace GameManager.Host.Winforms
         {
             //Bind games to listbox
             _ListGames.Items.Clear();
-
             _ListGames.DisplayMember = nameof(Game.Name);
 
-            _ListGames.Items.AddRange(_games.GetAll());
+            //Can use AddRange now that we don't care about null items
+            //var enumor = _games.GetAll();
+            //var enumoror = enumor.GetEnumerator();
+            //while (enumoror.MoveNext())
+            //{
+            //    var item = enumoror.Current;
+            //};
+            ////foreach (var item in enumor)
+            //{
+            //};
 
+            _ListGames.Items.AddRange(_games.GetAll().ToArray());
             //foreach (var game in _games)
             //{
             //    if (game != null)
-            //    _ListGames.Items.Add(game);
+            //        _listGames.Items.Add(game);
             //};
         }
 
@@ -113,7 +122,7 @@ namespace GameManager.Host.Winforms
             };
         }
 
-        private GameDatabase _games = new GameDatabase();
+        private IGameDatabase _games = new IGameDatabase();
 
         private void OnGameEdit( object sender, EventArgs e )
         {

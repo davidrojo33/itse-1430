@@ -28,12 +28,22 @@ namespace GameManager.Host.Winforms
                 return;
 
             var game = SaveData();
-            
+
             //Validate at business level
-            if (!game.Validate())
+            try
             {
-                MessageBox.Show("Game not valid.", "Error", MessageBoxButtons.OK);
-            }
+                new ObjectValidator().Validate(game);
+            } catch (ValidationException)
+            {
+                MessageBox.Show(this, "Game not valid.", "Error", MessageBoxButtons.OK);
+                return;
+            };
+            //if (!game.Validate())
+            //{
+            //    MessageBox.Show(this, "Game not valid.", "Error", MessageBoxButtons.OK);
+            //    return;
+            //};
+
             Game = game;
             DialogResult = DialogResult.OK;
             Close();

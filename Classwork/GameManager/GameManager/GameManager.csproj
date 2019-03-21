@@ -43,7 +43,11 @@
   <ItemGroup>
     <Compile Include="Game.cs" />
     <Compile Include="GameDatabase.cs" />
+    <Compile Include="IGameDatabase1.cs" />
+    <Compile Include="ObjectValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValidationContext.cs" />
+    <Compile Include="ValidationResult.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
