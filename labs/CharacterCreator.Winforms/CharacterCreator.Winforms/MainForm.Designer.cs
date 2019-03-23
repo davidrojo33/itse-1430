@@ -94,6 +94,7 @@
             this.delToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
             this.delToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.delToolStripMenuItem.Text = "Exit";
+            this.delToolStripMenuItem.Click += new System.EventHandler(this.OnFileExit);
             // 
             // addToolStripMenuItem
             // 
@@ -101,6 +102,7 @@
             this.addToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addToolStripMenuItem.Text = "Add";
+            this.addToolStripMenuItem.Click += new System.EventHandler(this.OnCharacterAdd);
             // 
             // editToolStripMenuItem1
             // 
@@ -108,6 +110,7 @@
             this.editToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D0)));
             this.editToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.editToolStripMenuItem1.Text = "Edit";
+            this.editToolStripMenuItem1.Click += new System.EventHandler(this.OnCharacterEdit);
             // 
             // delToolStripMenuItem1
             // 
@@ -115,6 +118,7 @@
             this.delToolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.Delete;
             this.delToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.delToolStripMenuItem1.Text = "Del";
+            this.delToolStripMenuItem1.DoubleClick += new System.EventHandler(this.OnCharacterDelete);
             // 
             // aboutToolStripMenuItem
             // 
@@ -122,6 +126,7 @@
             this.aboutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.OnHelpAbout);
             // 
             // MainForm
             // 
