@@ -44,14 +44,6 @@ namespace CharacterCreator
 
         private string _race = "";
 
-        public string Attributes
-        {
-            get { return _attributes ?? ""; }
-            set { _attributes = value; }
-        }
-
-        private string _attributes = "";
-
         public override string ToString()
         {
             return Name;
@@ -60,6 +52,10 @@ namespace CharacterCreator
         public bool Validate()
         {
             if (String.IsNullOrEmpty(Name))
+                return false;
+            if (String.IsNullOrEmpty(Profession))
+                return false;
+            if (String.IsNullOrEmpty(Race))
                 return false;
 
             return true;

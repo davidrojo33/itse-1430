@@ -48,7 +48,6 @@ namespace CharacterCreator.Winforms
             _txtProfession.Text = character.Profession;
             _txtRace.Text = character.Race;
             
-
         }
 
         private Character SaveData()
@@ -57,7 +56,6 @@ namespace CharacterCreator.Winforms
             character.Name = _txtName.Text;
             character.Profession = _txtProfession.Text;
             character.Race = _txtRace.Text;
-            character.Attributes = _txtProfession.Text;
 
             return character;
         }

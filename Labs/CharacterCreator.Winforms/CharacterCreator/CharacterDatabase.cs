@@ -14,7 +14,7 @@ namespace CharacterCreator
             character.Name = "David";
             character.Profession = "Fighter";
             character.Race = "Gnome";
-            character.Attributes = "Strong";
+            
             Add(character);
 
         }
@@ -120,7 +120,6 @@ namespace CharacterCreator
             target.Name = source.Name;
             target.Profession = source.Profession;
             target.Race = source.Race;
-            target.Attributes = source.Attributes;
         }
 
         private int GetIndex( int id )

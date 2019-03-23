@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this._txtName = new System.Windows.Forms.Label();
             this._txtProfession = new System.Windows.Forms.Label();
             this._txtRace = new System.Windows.Forms.Label();
@@ -46,17 +47,23 @@
             this.button2 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
             this.SuspendLayout();
             // 
             // _txtName
             // 
             this._txtName.AutoSize = true;
-            this._txtName.Location = new System.Drawing.Point(13, 13);
+            this._txtName.Location = new System.Drawing.Point(10, 13);
             this._txtName.Name = "_txtName";
             this._txtName.Size = new System.Drawing.Size(35, 13);
             this._txtName.TabIndex = 0;
@@ -65,7 +72,7 @@
             // _txtProfession
             // 
             this._txtProfession.AutoSize = true;
-            this._txtProfession.Location = new System.Drawing.Point(13, 66);
+            this._txtProfession.Location = new System.Drawing.Point(10, 66);
             this._txtProfession.Name = "_txtProfession";
             this._txtProfession.Size = new System.Drawing.Size(56, 13);
             this._txtProfession.TabIndex = 1;
@@ -74,7 +81,7 @@
             // _txtRace
             // 
             this._txtRace.AutoSize = true;
-            this._txtRace.Location = new System.Drawing.Point(12, 122);
+            this._txtRace.Location = new System.Drawing.Point(10, 122);
             this._txtRace.Name = "_txtRace";
             this._txtRace.Size = new System.Drawing.Size(33, 13);
             this._txtRace.TabIndex = 2;
@@ -187,7 +194,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(80, 13);
+            this.textBox1.Location = new System.Drawing.Point(72, 13);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 13;
@@ -221,7 +228,7 @@
             "Priest",
             "Rogue",
             "Wizard"});
-            this.comboBox1.Location = new System.Drawing.Point(80, 66);
+            this.comboBox1.Location = new System.Drawing.Point(72, 66);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 18;
@@ -235,10 +242,22 @@
             "Gnome",
             "Half Elf",
             "Human"});
-            this.comboBox2.Location = new System.Drawing.Point(80, 122);
+            this.comboBox2.Location = new System.Drawing.Point(71, 122);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 19;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
+            // 
+            // errorProvider3
+            // 
+            this.errorProvider3.ContainerControl = this;
             // 
             // CharacterForm
             // 
@@ -271,6 +290,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,5 +318,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
+        private System.Windows.Forms.ErrorProvider errorProvider3;
     }
 }
