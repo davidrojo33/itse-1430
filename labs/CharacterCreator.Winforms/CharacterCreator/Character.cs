@@ -44,12 +44,12 @@ namespace CharacterCreator
 
         private string _race = "";
 
-        public string Strength
-        {
-            //get { return strength ?? ""; }
-            //set { strength = value; }
+        //public string Strength
+        //{
+        //    //get { return strength ?? ""; }
+        //    //set { strength = value; }
 
-        }
+        //}
 
         public override string ToString()
         {
