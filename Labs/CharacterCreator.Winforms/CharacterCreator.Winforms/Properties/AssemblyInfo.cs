@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CharacterCreator.Host")]
+[assembly: AssemblyTitle("CharacterCreator.Winforms")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CharacterCreator.Host")]
+[assembly: AssemblyProduct("CharacterCreator.Winforms")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("bca2c45f-29e2-480b-946e-1f28d174dd68")]
+[assembly: Guid("5b5f76e3-4297-42bb-861d-63074592468e")]
 
 // Version information for an assembly consists of the following four values:
 //
