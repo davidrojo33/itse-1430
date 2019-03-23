@@ -47,8 +47,12 @@ namespace CharacterCreator.Winforms
             _txtName.Text = character.Name;
             _txtProfession.Text = character.Profession;
             _txtRace.Text = character.Race;
+            strength.AllowDrop = character.Validate();
+            intelligence.AllowDrop = character.Validate();
+            agility.AllowDrop = character.Validate();
+            constitution.AllowDrop = character.Validate();
+            charisma.AllowDrop = character.Validate();
             
-
         }
 
         private Character SaveData()
@@ -57,7 +61,7 @@ namespace CharacterCreator.Winforms
             character.Name = _txtName.Text;
             character.Profession = _txtProfession.Text;
             character.Race = _txtRace.Text;
-            character.Attributes = _txtProfession.Text;
+            //character.Strength
 
             return character;
         }

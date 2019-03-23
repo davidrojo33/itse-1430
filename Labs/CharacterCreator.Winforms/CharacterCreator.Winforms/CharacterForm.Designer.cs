@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this._txtName = new System.Windows.Forms.Label();
             this._txtProfession = new System.Windows.Forms.Label();
             this._txtRace = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.strength = new System.Windows.Forms.Label();
+            this.intelligence = new System.Windows.Forms.Label();
+            this.agility = new System.Windows.Forms.Label();
+            this.constitution = new System.Windows.Forms.Label();
+            this.charisma = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
@@ -46,17 +47,23 @@
             this.button2 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
             this.SuspendLayout();
             // 
             // _txtName
             // 
             this._txtName.AutoSize = true;
-            this._txtName.Location = new System.Drawing.Point(13, 13);
+            this._txtName.Location = new System.Drawing.Point(10, 13);
             this._txtName.Name = "_txtName";
             this._txtName.Size = new System.Drawing.Size(35, 13);
             this._txtName.TabIndex = 0;
@@ -65,7 +72,7 @@
             // _txtProfession
             // 
             this._txtProfession.AutoSize = true;
-            this._txtProfession.Location = new System.Drawing.Point(13, 66);
+            this._txtProfession.Location = new System.Drawing.Point(10, 66);
             this._txtProfession.Name = "_txtProfession";
             this._txtProfession.Size = new System.Drawing.Size(56, 13);
             this._txtProfession.TabIndex = 1;
@@ -74,56 +81,56 @@
             // _txtRace
             // 
             this._txtRace.AutoSize = true;
-            this._txtRace.Location = new System.Drawing.Point(12, 122);
+            this._txtRace.Location = new System.Drawing.Point(10, 122);
             this._txtRace.Name = "_txtRace";
             this._txtRace.Size = new System.Drawing.Size(33, 13);
             this._txtRace.TabIndex = 2;
             this._txtRace.Text = "Race";
             // 
-            // label4
+            // strength
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(221, 15);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Strength";
+            this.strength.AutoSize = true;
+            this.strength.Location = new System.Drawing.Point(221, 15);
+            this.strength.Name = "strength";
+            this.strength.Size = new System.Drawing.Size(47, 13);
+            this.strength.TabIndex = 3;
+            this.strength.Text = "Strength";
             // 
-            // label5
+            // intelligence
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(221, 50);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Intelligence";
+            this.intelligence.AutoSize = true;
+            this.intelligence.Location = new System.Drawing.Point(221, 50);
+            this.intelligence.Name = "intelligence";
+            this.intelligence.Size = new System.Drawing.Size(61, 13);
+            this.intelligence.TabIndex = 4;
+            this.intelligence.Text = "Intelligence";
             // 
-            // label6
+            // agility
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(221, 84);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(34, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Agility";
+            this.agility.AutoSize = true;
+            this.agility.Location = new System.Drawing.Point(221, 86);
+            this.agility.Name = "agility";
+            this.agility.Size = new System.Drawing.Size(34, 13);
+            this.agility.TabIndex = 5;
+            this.agility.Text = "Agility";
             // 
-            // label7
+            // constitution
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(221, 116);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(62, 13);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Constitution";
+            this.constitution.AutoSize = true;
+            this.constitution.Location = new System.Drawing.Point(221, 125);
+            this.constitution.Name = "constitution";
+            this.constitution.Size = new System.Drawing.Size(62, 13);
+            this.constitution.TabIndex = 6;
+            this.constitution.Text = "Constitution";
             // 
-            // label8
+            // charisma
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(221, 151);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(50, 13);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Charisma";
+            this.charisma.AutoSize = true;
+            this.charisma.Location = new System.Drawing.Point(221, 162);
+            this.charisma.Name = "charisma";
+            this.charisma.Size = new System.Drawing.Size(50, 13);
+            this.charisma.TabIndex = 7;
+            this.charisma.Text = "Charisma";
             // 
             // numericUpDown1
             // 
@@ -151,7 +158,7 @@
             // 
             // numericUpDown3
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(286, 82);
+            this.numericUpDown3.Location = new System.Drawing.Point(286, 84);
             this.numericUpDown3.Name = "numericUpDown3";
             this.numericUpDown3.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown3.TabIndex = 10;
@@ -163,7 +170,7 @@
             // 
             // numericUpDown4
             // 
-            this.numericUpDown4.Location = new System.Drawing.Point(286, 114);
+            this.numericUpDown4.Location = new System.Drawing.Point(286, 123);
             this.numericUpDown4.Name = "numericUpDown4";
             this.numericUpDown4.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown4.TabIndex = 11;
@@ -175,7 +182,7 @@
             // 
             // numericUpDown5
             // 
-            this.numericUpDown5.Location = new System.Drawing.Point(286, 149);
+            this.numericUpDown5.Location = new System.Drawing.Point(286, 160);
             this.numericUpDown5.Name = "numericUpDown5";
             this.numericUpDown5.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown5.TabIndex = 12;
@@ -187,7 +194,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(80, 13);
+            this.textBox1.Location = new System.Drawing.Point(72, 13);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 13;
@@ -200,6 +207,7 @@
             this.button1.TabIndex = 16;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.OnSave);
             // 
             // button2
             // 
@@ -209,6 +217,7 @@
             this.button2.TabIndex = 17;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.OnCancel);
             // 
             // comboBox1
             // 
@@ -219,7 +228,7 @@
             "Priest",
             "Rogue",
             "Wizard"});
-            this.comboBox1.Location = new System.Drawing.Point(80, 66);
+            this.comboBox1.Location = new System.Drawing.Point(72, 66);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 18;
@@ -233,10 +242,22 @@
             "Gnome",
             "Half Elf",
             "Human"});
-            this.comboBox2.Location = new System.Drawing.Point(80, 122);
+            this.comboBox2.Location = new System.Drawing.Point(71, 122);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 19;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
+            // 
+            // errorProvider3
+            // 
+            this.errorProvider3.ContainerControl = this;
             // 
             // CharacterForm
             // 
@@ -253,11 +274,11 @@
             this.Controls.Add(this.numericUpDown3);
             this.Controls.Add(this.numericUpDown2);
             this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.charisma);
+            this.Controls.Add(this.constitution);
+            this.Controls.Add(this.agility);
+            this.Controls.Add(this.intelligence);
+            this.Controls.Add(this.strength);
             this.Controls.Add(this._txtRace);
             this.Controls.Add(this._txtProfession);
             this.Controls.Add(this._txtName);
@@ -269,6 +290,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,11 +303,11 @@
         private System.Windows.Forms.Label _txtName;
         private System.Windows.Forms.Label _txtProfession;
         private System.Windows.Forms.Label _txtRace;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label strength;
+        private System.Windows.Forms.Label intelligence;
+        private System.Windows.Forms.Label agility;
+        private System.Windows.Forms.Label constitution;
+        private System.Windows.Forms.Label charisma;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.NumericUpDown numericUpDown3;
@@ -294,5 +318,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
+        private System.Windows.Forms.ErrorProvider errorProvider3;
     }
 }
