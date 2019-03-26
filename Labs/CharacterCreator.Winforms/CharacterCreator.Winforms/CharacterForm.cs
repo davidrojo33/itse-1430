@@ -58,9 +58,9 @@ namespace CharacterCreator.Winforms
         private Character SaveData()
         {
             var character = new Character();
-            character.Name = _txtName.Text;
-            character.Profession = _txtProfession.Text;
-            character.Race = _txtRace.Text;
+            character.Name = textBox1.Text.Trim();
+            character.Profession = comboBox1.Text;
+            character.Race = comboBox2.Text;
             //character.Strength
 
             return character;

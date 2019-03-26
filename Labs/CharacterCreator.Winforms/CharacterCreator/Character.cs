@@ -44,6 +44,13 @@ namespace CharacterCreator
 
         private string _race = "";
 
+        //public string Strength
+        //{
+        //    //get { return strength ?? ""; }
+        //    //set { strength = value; }
+
+        //}
+
         public override string ToString()
         {
             return Name;
@@ -57,7 +64,7 @@ namespace CharacterCreator
                 return false;
             if (String.IsNullOrEmpty(Race))
                 return false;
-
+            
             return true;
         }
     }
