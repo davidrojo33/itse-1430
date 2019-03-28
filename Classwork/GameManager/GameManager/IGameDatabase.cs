@@ -2,7 +2,7 @@
 
 namespace GameManager
 {
-    public interface IGameDatabase1
+    public interface IGameDatabase
     {
         /// <summary>Adds a new game.</summary>
         /// <param name="game">The game to add.</param>

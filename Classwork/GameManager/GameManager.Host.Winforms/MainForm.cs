@@ -28,17 +28,23 @@ namespace GameManager.Host.Winforms
             Close();
         }
 
-        protected override void OnLoad( EventArgs e )
-        {
-            base.OnLoad(e);
-
-            BindList();
-        }
-
         private void OnHelpAbout( object sender, EventArgs e )
         {
             var form = new AboutBox();
             form.ShowDialog();
+        }
+
+        protected override void OnLoad( EventArgs e )
+        {
+            base.OnLoad(e);
+
+            //Seed if database is empty
+            var games = _games.GetAll();
+            if (games.Count() == 0)
+                //SeedDatabase.Seed(_games);
+                _games.Seed();
+
+            BindList();
         }
 
         private void BindList ()
@@ -58,12 +64,19 @@ namespace GameManager.Host.Winforms
             //{
             //};
 
-            _ListGames.Items.AddRange(_games.GetAll().ToArray());
+            var items = _games.GetAll();
+            items = items.OrderBy(GetName);
+            _ListGames.Items.AddRange(items.ToArray());
             //foreach (var game in _games)
             //{
             //    if (game != null)
             //        _listGames.Items.Add(game);
             //};
+        }
+
+        private string GetName ( Game game )
+        {
+            return game.Name;
         }
 
         private void OnGameAdd( object sender, EventArgs e )
