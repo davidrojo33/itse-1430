@@ -16,7 +16,7 @@ namespace ContactManager.UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ContactForm());
+            Application.Run(new MainForm());
         }
     }
 }
