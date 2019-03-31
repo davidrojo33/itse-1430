@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ContactManager.UI
 {
-    public partial class MessagesForm : Form
+    public partial class MessageForm : Form
     {
-        public MessagesForm()
+        public MessageForm()
         {
             InitializeComponent();
         }

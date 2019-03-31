@@ -1,6 +1,6 @@
 ﻿namespace ContactManager.UI
 {
-    partial class ContactForm
+    partial class MessageForm
     {
         /// <summary>
         /// Required designer variable.
@@ -37,24 +37,24 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(13, 13);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(346, 20);
+            this.textBox1.Size = new System.Drawing.Size(359, 20);
             this.textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(13, 40);
+            this.textBox2.Location = new System.Drawing.Point(13, 70);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(346, 20);
+            this.textBox2.Size = new System.Drawing.Size(359, 20);
             this.textBox2.TabIndex = 1;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(13, 67);
+            this.textBox3.Location = new System.Drawing.Point(12, 127);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(346, 20);
+            this.textBox3.Size = new System.Drawing.Size(360, 20);
             this.textBox3.TabIndex = 2;
             // 
-            // ContactForm
+            // MessageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -62,8 +62,8 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Name = "ContactForm";
-            this.Text = "ContactForm";
+            this.Name = "MessageForm";
+            this.Text = "MessageForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 
