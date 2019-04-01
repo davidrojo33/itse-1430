@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace ContactManager
 {
-    public class Contacts
+    public class Contact : IValidatableObject
     {
         public int Id { get; set; }
 
-        public Contacts()
+        public Contact()
         {
 
         }
@@ -37,10 +37,22 @@ namespace ContactManager
             return Name;
         }
 
-        public IEnumerable<VvalidationResult> Validate( ValidationContext validationContext )
+        public IEnumerable<ValidationResult> Validate( ValidationContext validationContext )
         {
             var items = new List<ValidationResult>();
+
+            if (String.IsNullOrEmpty(Name))
+                items.Add(new ValidationResult("Name is required.", new[] { nameof(Name) }));
+
+            if (String.IsNullOrEmpty(Email))
+                items.Add(new ValidationResult("Email is required.", new[] { nameof(Email) }));
+
+            return items;
         }
 
+        public interface IValidatableObject
+        {
+
+        }
     }
 }

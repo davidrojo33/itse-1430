@@ -8,14 +8,15 @@ namespace ContactManager
 {
     public interface IContactDatabase
     {
-        Contacts Add( Contacts contact );
+        Contact Add( Contact contact );
 
         void Delete( int id );
 
-        Contacts Get( int id );
+        Contact Get( int id );
 
-        IEnumerable<Contacts> GetAll();
+        IEnumerable<Contact> GetAll();
 
-        Contacts Update( int id, Contacts contact );
+        Contact Update( int id, Contact contact );
     }
+
 }

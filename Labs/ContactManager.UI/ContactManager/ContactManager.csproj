@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{02185B8D-9A67-498F-8ED9-6EBC133D0912}</ProjectGuid>
+    <ProjectGuid>{FC8521BA-FA67-4955-BD6B-428113DE5E82}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ContactManager</RootNamespace>
@@ -42,10 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contact.cs" />
     <Compile Include="ContactDatabase.cs" />
-    <Compile Include="Contacts.cs" />
     <Compile Include="IContactDatabase.cs" />
+    <Compile Include="IMessageService.cs" />
     <Compile Include="MemoryContactDatabase.cs" />
+    <Compile Include="Message.cs" />
+    <Compile Include="ObjectValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

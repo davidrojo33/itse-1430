@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace ContactManager
 {
-    class MemoryContactDatabase : ContactDatabase
+    public class MemoryContactDatabase : ContactDatabase
     {
 
-        protected override Contacts AddCore( Contacts contact )
+        protected override Contact AddCore( Contact contact )
         {
             contact.Id = ++_nextId;
             _items.Add(Clone(contact));
@@ -24,7 +24,7 @@ namespace ContactManager
                 _items.RemoveAt(index);
         }
 
-        protected override Contacts GetCore( int id )
+        protected override Contact GetCore( int id )
         {
             var index = GetIndex(id);
             if (index >= 0)
@@ -33,13 +33,13 @@ namespace ContactManager
             return null;
         }
 
-        protected override IEnumerable<Contacts> GetAllCore()
+        protected override IEnumerable<Contact> GetAllCore()
         {
             foreach (var item in _items)
                 yield return Clone(item);
         }
 
-        protected override Contacts UpdateCore( int id, Contacts contact )
+        protected override Contact UpdateCore( int id, Contact contact )
         {
             var index = GetIndex(id);
 
@@ -50,27 +50,31 @@ namespace ContactManager
             return contact;
         }
 
-        private Contacts Clone(Contacts contact)
+        private Contact Clone( Contact contact )
         {
-            var newContact = new Contacts();
+            var newContact = new Contact();
             Clone(newContact, contact);
 
             return newContact;
         }
 
-        private void Clone(Contacts target, Contacts source)
+        private void Clone( Contact target, Contact source )
         {
             target.Id = source.Id;
             target.Name = source.Name;
             target.Email = source.Email;
         }
 
-        private int GetIndex(int id)
+        private int GetIndex( int id )
         {
             for (var index = 0; index < _items.Count; ++index)
                 return index;
 
             return -1;
         }
+
+        private readonly List<Contact> _items = new List<Contact>();
+
+        private int _nextId = 0;
     }
 }

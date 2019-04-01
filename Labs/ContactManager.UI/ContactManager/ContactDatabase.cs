@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace ContactManager
 {
-    public class ContactDatabase : IContactDatabase
+    public abstract class ContactDatabase : IContactDatabase
     {
-        public Contacts Add( Contacts contact )
+        public Contact Add( Contact contact )
         {
             if (contact == null)
-            throw new ArgumentException(nameof(contact));
+                throw new ArgumentException(nameof(contact));
 
             ObjectValidator.Validate(contact);
 
@@ -30,7 +30,7 @@ namespace ContactManager
             DeleteCore(id);
         }
 
-        public Contacts Get( int id )
+        public Contact Get( int id )
         {
             if (id <= 0)
                 throw new ArgumentOutOfRangeException(nameof(id), "Id must be > 0");
@@ -38,12 +38,12 @@ namespace ContactManager
             return GetCore(id);
         }
 
-        public IEnumerable<Contacts> GetAll()
+        public IEnumerable<Contact> GetAll()
         {
             return GetAllCore();
         }
 
-        public Contacts Update( int id, Contacts contact )
+        public Contact Update( int id, Contact contact )
         {
             if (id <= 0)
                 throw new ArgumentOutOfRangeException(nameof(id), "Id must be > 0.");
@@ -63,13 +63,13 @@ namespace ContactManager
             return UpdateCore(id, contact);
         }
 
-        protected abstract Contacts AddCore( Contacts contact );
+        protected abstract Contact AddCore( Contact contact );
 
         protected abstract void DeleteCore( int id );
 
-        protected virtual Contacts FindByName(string name)
+        protected virtual Contact FindByName( string name )
         {
-            foreach ( var contact in GetAllCore())
+            foreach (var contact in GetAllCore())
             {
                 if (String.Compare(contact.Name, name, true) == 0)
                     return contact;
@@ -77,10 +77,11 @@ namespace ContactManager
             return null;
         }
 
-        protected abstract Contacts GetCore( int id );
+        protected abstract Contact GetCore( int id );
 
-        protected abstract IEnumerable<Contacts> GetAllCore();
+        protected abstract IEnumerable<Contact> GetAllCore();
 
-        protected abstract Contacts UpdateCore( int id, Contacts newContact );
+        protected abstract Contact UpdateCore( int id, Contact newContact );
     }
+
 }
