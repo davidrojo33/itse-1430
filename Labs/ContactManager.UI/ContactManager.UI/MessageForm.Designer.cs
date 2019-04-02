@@ -38,7 +38,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(92, 45);
+            this.textBox1.Location = new System.Drawing.Point(92, 29);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 0;
@@ -46,7 +46,7 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(92, 104);
+            this.listBox1.Location = new System.Drawing.Point(92, 72);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(189, 134);
             this.listBox1.TabIndex = 1;
@@ -54,11 +54,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 51);
+            this.label1.Location = new System.Drawing.Point(28, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
+            this.label1.Text = "Subject";
             // 
             // button1
             // 
@@ -81,11 +81,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 104);
+            this.label2.Location = new System.Drawing.Point(28, 81);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(31, 13);
             this.label2.TabIndex = 5;
-            this.label2.Text = "label2";
+            this.label2.Text = "Body";
             // 
             // MessageForm
             // 
