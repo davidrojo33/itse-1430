@@ -12,35 +12,13 @@ namespace GameManager
     {
         public int Id { get; set; }
 
-        //Ctors
-
-        //Default, no return type
-        // 1) Cannot be called directly
-        // 2) Errors are very bad
-        // 3) Should behave no different than doing it manually
-        public Game()
-        {
-            //Complex init
-
-        }
-
-        //Constructor chaining
-        public Game( string name ) : this(name, 0)
-        {
-            //Name = name;
-        }
-
-        public Game( string name, decimal price )
-        {
-            Name = name;
-            Price = price;
-        }
-
         /// <summary>Name of the game.</summary>
         public string Name
         {
-            get { return _name ?? ""; }
-            set { _name = value ?? ""; }
+            //get { return _name ?? ""; }
+            get => _name ?? "";
+            //set { _name = value ?? ""; }
+            set => _name = value ?? "";
         }
 
         private string _name = "";
@@ -48,16 +26,19 @@ namespace GameManager
         /// <summary>Publisher of the game.</summary>
         public string Description
         {
-            get { return _description ?? ""; }
-            set { _description = value; }
+            get => _description ?? "";
+            set => _description = value;
         }
         private string _description = "";
 
         //Calculated property
-        public bool IsCoolGame
+        /*public bool IsCoolGame
         {
-            get { return Description != "EA"; }
-        }
+            get { return Price < 59.99M; }
+        }*/
+        public bool IsCoolGame => Price < 59.99M;
+
+        //private bool IsCoolGame2 = true;
 
         //Setter only
         //public string Password
@@ -92,11 +73,12 @@ namespace GameManager
             var now = DateTime.Now;
         }
 
-        public override string ToString()
-        {
-            return Name;
-        }
-       
+        //public override string ToString()
+        //{
+        //    return Name;
+        //}        
+        public override string ToString() => Name;
+
         public IEnumerable<ValidationResult> Validate( ValidationContext validationContext )
         {
             var items = new List<ValidationResult>();
