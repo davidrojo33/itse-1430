@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3ABBDB71-15E0-444F-A663-9D9ED4FEA7B2}</ProjectGuid>
+    <ProjectGuid>{24567ACF-4206-4CD7-B531-606D80B7EA29}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>ContactManager.UI</RootNamespace>
     <AssemblyName>ContactManager.UI</AssemblyName>
@@ -108,7 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ContactManager\ContactManager.csproj">
-      <Project>{02185b8d-9a67-498f-8ed9-6ebc133d0912}</Project>
+      <Project>{fc8521ba-fa67-4955-bd6b-428113de5e82}</Project>
       <Name>ContactManager</Name>
     </ProjectReference>
   </ItemGroup>
