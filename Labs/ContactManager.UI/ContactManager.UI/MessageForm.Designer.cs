@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this._subject = new System.Windows.Forms.TextBox();
+            this._body = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBox1
+            // _subject
             // 
-            this.textBox1.Location = new System.Drawing.Point(92, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this._subject.Location = new System.Drawing.Point(92, 29);
+            this._subject.Name = "_subject";
+            this._subject.Size = new System.Drawing.Size(228, 20);
+            this._subject.TabIndex = 0;
             // 
-            // listBox1
+            // _body
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(92, 72);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(189, 134);
-            this.listBox1.TabIndex = 1;
+            this._body.FormattingEnabled = true;
+            this._body.Location = new System.Drawing.Point(92, 72);
+            this._body.Name = "_body";
+            this._body.Size = new System.Drawing.Size(228, 147);
+            this._body.TabIndex = 1;
             // 
             // label1
             // 
@@ -66,7 +66,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
+            this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
@@ -75,7 +75,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 4;
-            this.button2.Text = "button2";
+            this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // label2
@@ -96,9 +96,10 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this._body);
+            this.Controls.Add(this._subject);
             this.Name = "MessageForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "MessageForm";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -107,8 +108,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.TextBox _subject;
+        private System.Windows.Forms.ListBox _body;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;

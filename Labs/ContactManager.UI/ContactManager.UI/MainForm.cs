@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*
+ * Lab3
+ */
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,13 +28,6 @@ namespace ContactManager.UI
             Close();
         }
 
-        protected override void OnLoad( EventArgs e )
-        {
-            base.OnLoad(e);
-
-            BindList();
-        }
-
         private void OnHelpAbout( object sender, EventArgs e )
         {
             var form = new AboutBox();
@@ -39,7 +36,13 @@ namespace ContactManager.UI
 
         private void BindList()
         {
-            
+            _contacts.Items.Clear();
+            _contacts.DisplayMember = nameof(Contact.Name);
+
+            //var items = _contacts.GetAll();
+            //items = items.OrderBy(GetName);
+            //_contacts.Items.AddRange(items.ToArray());
+
         }
 
         private void OnContactAdd( object sender, EventArgs e )
@@ -74,10 +77,98 @@ namespace ContactManager.UI
 
         private void OnSafeAdd( ContactForm form )
         {
-            //try
-            //{
-                
-            //}
+            try
+            {
+                //contacts.Add(form.Contact);
+            } catch (NotImplementedException e)
+            {
+                //Rewriting an exception
+                throw new Exception("Not implemented yet", e);
+            } catch (Exception e)
+            {
+                throw;
+            };
+        }
+
+        private void OnContactEdit( object sender, EventArgs e )
+        {
+            var form = new ContactForm();
+
+            var contact = GetSelectedContact();
+            if (contact == null)
+                return;
+
+            //Game to edit
+            form.Contact = contact;
+
+            while (true)
+            {
+                if (form.ShowDialog(this) != DialogResult.OK)
+                    return;
+
+                try
+                {
+                    //UpdateGame(game, form.Game);            
+                    //_contacts.Update(contact.Id, form.Contact);
+                    break;
+                } catch (Exception ex)
+                {
+                    DisplayError(ex);
+                };
+            };
+
+            BindList();
+        }
+
+        private void OnContactDelete( object sender, EventArgs e )
+        {
+            //Get selected game, if any
+            var selected = GetSelectedContact();
+            if (selected == null)
+                return;
+
+            //Display confirmation
+            if (MessageBox.Show(this, $"Are you sure you want to delete {selected.Name}?",
+                               "Confirm Delete", MessageBoxButtons.YesNo,
+                               MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
+
+            //TODO: Delete
+            //DeleteGame(selected);
+            //_contacts.Delete(selected.Id);
+            BindList();
+            //_game = null;
+        }
+
+        private Contact GetSelectedContact()
+        {
+            var value = _contacts.SelectedItem;
+
+            //Typesafe conversion
+            //_ListGames.Items.OfType<Game>();
+
+            //C-style cast - don't do this
+            //var game = (Game)value;
+
+            //Preferred - null if not valid
+            var contact = value as Contact;
+
+            return _contacts.SelectedItem as Contact;
+        }
+
+        private void OnContactSelected( object sender, EventArgs e )
+        {
+
+        }
+
+        protected override void OnFormClosing( FormClosingEventArgs e )
+        {
+            if (MessageBox.Show(this, "Are you sure?", "Close", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                e.Cancel = true;
+                return;
+            }
+            base.OnFormClosing(e);
         }
     }
 }

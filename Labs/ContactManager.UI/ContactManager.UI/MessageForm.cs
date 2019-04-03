@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*
+ * Lab3
+ */
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +19,25 @@ namespace ContactManager.UI
         public MessageForm()
         {
             InitializeComponent();
+        }
+
+        private void OnFileExit( object sender, EventArgs e )
+        {
+            var x = 10;
+
+            Close();
+        }
+
+        protected override void OnLoad( EventArgs e )
+        {
+            base.OnLoad(e);
+
+            BindList();
+        }
+
+        private void BindList()
+        {
+
         }
     }
 }
