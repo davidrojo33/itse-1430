@@ -23,8 +23,6 @@ namespace ContactManager.UI
 
         private void OnFileExit( object sender, EventArgs e )
         {
-            var x = 10;
-
             Close();
         }
 
@@ -43,6 +41,12 @@ namespace ContactManager.UI
             //items = items.OrderBy(GetName);
             //_contacts.Items.AddRange(items.ToArray());
 
+        }
+
+        private void LoadContacts( Contact contact )
+        {
+            _contacts.Text = contact.Name;
+            _messages.Text = contact.Email;
         }
 
         private void OnContactAdd( object sender, EventArgs e )
@@ -79,10 +83,10 @@ namespace ContactManager.UI
         {
             try
             {
-                //contacts.Add(form.Contact);
+                //contacts.add(form.contact);
             } catch (NotImplementedException e)
             {
-                //Rewriting an exception
+                //rewriting an exception
                 throw new Exception("Not implemented yet", e);
             } catch (Exception e)
             {
@@ -169,6 +173,11 @@ namespace ContactManager.UI
                 return;
             }
             base.OnFormClosing(e);
+        }
+
+        private void SendMessage ( string M)
+        {
+
         }
     }
 }

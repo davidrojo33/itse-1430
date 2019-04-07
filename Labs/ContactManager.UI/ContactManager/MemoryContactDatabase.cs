@@ -8,77 +8,77 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ContactManager
-{
-    public class MemoryContactDatabase : ContactDatabase
-    {
+//namespace contactmanager
+//{
+//    public class memorycontactdatabase : contactdatabase
+//    {
 
-        protected override Contact AddCore( Contact contact )
-        {
-            contact.Id = ++_nextId;
-            _items.Add(Clone(contact));
+//        protected override contact addcore( contact contact )
+//        {
+//            contact.id = ++_nextid;
+//            _items.add(clone(contact));
 
-            return contact;
-        }
+//            return contact;
+//        }
 
-        protected override void DeleteCore( int id )
-        {
-            var index = GetIndex(id);
-            if (index >= 0)
-                _items.RemoveAt(index);
-        }
+//        protected override void deletecore( int id )
+//        {
+//            var index = getindex(id);
+//            if (index >= 0)
+//                _items.removeat(index);
+//        }
 
-        protected override Contact GetCore( int id )
-        {
-            var index = GetIndex(id);
-            if (index >= 0)
-                return Clone(_items[index]);
+//        protected override contact getcore( int id )
+//        {
+//            var index = getindex(id);
+//            if (index >= 0)
+//                return clone(_items[index]);
 
-            return null;
-        }
+//            return null;
+//        }
 
-        protected override IEnumerable<Contact> GetAllCore()
-        {
-            foreach (var item in _items)
-                yield return Clone(item);
-        }
+//        protected override ienumerable<contact> getallcore()
+//        {
+//            foreach (var item in _items)
+//                yield return clone(item);
+//        }
 
-        protected override Contact UpdateCore( int id, Contact contact )
-        {
-            var index = GetIndex(id);
+//        protected override contact updatecore( int id, contact contact )
+//        {
+//            var index = getindex(id);
 
-            contact.Id = id;
-            var existing = _items[index];
-            Clone(existing, contact);
+//            contact.id = id;
+//            var existing = _items[index];
+//            clone(existing, contact);
 
-            return contact;
-        }
+//            return contact;
+//        }
 
-        private Contact Clone( Contact contact )
-        {
-            var newContact = new Contact();
-            Clone(newContact, contact);
+//        private contact clone( contact contact )
+//        {
+//            var newcontact = new contact();
+//            clone(newcontact, contact);
 
-            return newContact;
-        }
+//            return newcontact;
+//        }
 
-        private void Clone( Contact target, Contact source )
-        {
-            target.Id = source.Id;
-            target.Name = source.Name;
-            target.Email = source.Email;
-        }
+//        private void clone( contact target, contact source )
+//        {
+//            target.id = source.id;
+//            target.name = source.name;
+//            target.email = source.email;
+//        }
 
-        private int GetIndex( int id )
-        {
-            for (var index = 0; index < _items.Count; ++index)
-                return index;
+//        private int getindex( int id )
+//        {
+//            for (var index = 0; index < _items.count; ++index)
+//                return index;
 
-            return -1;
-        }
+//            return -1;
+//        }
 
-        private readonly List<Contact> _items = new List<Contact>();
+//        private readonly list<contact> _items = new list<contact>();
 
-        private int _nextId = 0;
-    }
-}
+//        private int _nextid = 0;
+//    }
+//}

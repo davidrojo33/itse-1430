@@ -12,5 +12,6 @@ namespace ContactManager
 {
     interface IMessageService
     {
+        void SendMessage( string M );
     }
 }

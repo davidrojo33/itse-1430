@@ -37,10 +37,10 @@ namespace ContactManager.UI
                 ObjectValidator.Validate(contact);
             } catch (ValidationException)
             {
-                MessageBox.Show(this, "Game not valid.", "Error", MessageBoxButtons.OK);
+                MessageBox.Show(this, "Contact not valid.", "Error", MessageBoxButtons.OK);
                 return;
             };
-            
+
             Contact = contact;
             DialogResult = DialogResult.OK;
             Close();
@@ -78,8 +78,7 @@ namespace ContactManager.UI
         }
 
         private void BindList()
-        {
-
+        { 
         }
 
         private void DisplayError( Exception ex )
@@ -94,6 +93,35 @@ namespace ContactManager.UI
             contact.Email = _email.Text;
 
             return contact;
+        }
+
+        private void OnValidatContact( object sender, System.ComponentModel.CancelEventArgs e )
+        {
+            var tb = sender as TextBox;
+
+            if (tb.Text.Length == 0)
+            {
+                _errors.SetError(tb, "Name is required.");
+                e.Cancel = true;
+            } else
+                _errors.SetError(tb, "");
+        }
+
+        bool IsValidEmail( string source )
+        {
+            try
+            {
+                new System.Net.Mail.MailAddress(source);
+                return true;
+            } catch
+            { };
+
+            return false;
+        }
+
+        private void _email_TextChanged( object sender, EventArgs e )
+        {
+
         }
     }
 }

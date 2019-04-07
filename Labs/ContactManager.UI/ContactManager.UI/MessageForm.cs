@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -21,20 +22,24 @@ namespace ContactManager.UI
             InitializeComponent();
         }
 
-        private void OnFileExit( object sender, EventArgs e )
+        private void OnCancel( object sender, EventArgs e )
         {
-            var x = 10;
-
             Close();
         }
 
-        protected override void OnLoad( EventArgs e )
+        private void SendMessage( string M )
         {
-            base.OnLoad(e);
 
-            BindList();
         }
 
+        private Contact SaveData()
+        {
+            var contact = new Contact();
+            contact.Name = _body.Text;
+            contact.Email = _body.Text;
+
+            return contact;
+        }
         private void BindList()
         {
 
