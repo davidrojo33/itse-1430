@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this._name = new System.Windows.Forms.TextBox();
+            this._contacts = new System.Windows.Forms.TextBox();
             this._email = new System.Windows.Forms.TextBox();
             this.save = new System.Windows.Forms.Button();
             this.cancel = new System.Windows.Forms.Button();
@@ -41,12 +41,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             this.SuspendLayout();
             // 
-            // _name
+            // _contacts
             // 
-            this._name.Location = new System.Drawing.Point(94, 42);
-            this._name.Name = "_name";
-            this._name.Size = new System.Drawing.Size(213, 20);
-            this._name.TabIndex = 0;
+            this._contacts.Location = new System.Drawing.Point(94, 42);
+            this._contacts.Name = "_contacts";
+            this._contacts.Size = new System.Drawing.Size(213, 20);
+            this._contacts.TabIndex = 0;
             // 
             // _email
             // 
@@ -112,7 +112,7 @@
             this.Controls.Add(this.cancel);
             this.Controls.Add(this.save);
             this.Controls.Add(this._email);
-            this.Controls.Add(this._name);
+            this.Controls.Add(this._contacts);
             this.Name = "ContactForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ContactForm";
@@ -125,7 +125,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox _name;
+        private System.Windows.Forms.TextBox _contacts;
         private System.Windows.Forms.TextBox _email;
         private System.Windows.Forms.Button save;
         private System.Windows.Forms.Button cancel;

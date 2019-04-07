@@ -89,7 +89,7 @@ namespace ContactManager.UI
         private Contact SaveData()
         {
             var contact = new Contact();
-            contact.Name = _name.Text;
+            contact.Name = _contacts.Text;
             contact.Email = _email.Text;
 
             return contact;

@@ -37,9 +37,7 @@ namespace ContactManager.UI
             _contacts.Items.Clear();
             _contacts.DisplayMember = nameof(Contact.Name);
 
-            //var items = _contacts.GetAll();
-            //items = items.OrderBy(GetName);
-            //_contacts.Items.AddRange(items.ToArray());
+            var items = _contacts.GetAll();
 
         }
 

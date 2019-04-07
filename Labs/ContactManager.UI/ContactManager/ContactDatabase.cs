@@ -14,57 +14,51 @@ namespace ContactManager
     {
         public Contact Add( Contact contact )
         {
-            if (contact == null)
-                throw new ArgumentException(nameof(contact));
+            contact.Id = ++_nextid;
+            _items.Add(Clone(contact));
 
-            ObjectValidator.Validate(contact);
-
-            var existing = FindByName(contact.Name);
-            if (existing != null)
-                throw new Exception("Contact must be unique.");
-
-            return AddCore(contact);
+            return contact;
         }
 
         public void Delete( int id )
         {
-            if (id <= 0)
-                throw new ArgumentOutOfRangeException(nameof(id), "Id must be > 0.");
-
-            DeleteCore(id);
+            var index = getindex(id);
+            if (index >= 0)
+            _items.RemoveAt(index);
         }
 
         public Contact Get( int id )
         {
-            if (id <= 0)
-                throw new ArgumentOutOfRangeException(nameof(id), "Id must be > 0");
+            var index = getindex(id);
+            if (index >= 0)
+            return Clone(_items[index]);
 
-            return GetCore(id);
+            return null;
         }
 
         public IEnumerable<Contact> GetAll()
         {
-            return GetAllCore();
+            foreach (var item in _items)
+                yield return Clone(item);
         }
 
         public Contact Update( int id, Contact contact )
         {
-            if (id <= 0)
-                throw new ArgumentOutOfRangeException(nameof(id), "Id must be > 0.");
-            if (contact == null)
-                throw new ArgumentNullException(nameof(contact));
+            var index = getindex(id);
 
-            ObjectValidator.Validate(contact);
+            contact.Id = id;
+            var existing = _items[index];
+            Clone(existing, contact);
 
-            var existing = GetCore(id);
-            if (existing != null)
-                throw new Exception("Contact does not exit.");
+            return contact;
+        }
 
-            var sameName = FindByName(contact.Name);
-            if (sameName != null && sameName.Id != id)
-                throw new Exception("Contact must be unique.");
+        private Contact Clone( Contact contact )
+        {
+            var newContact = new Contact();
+            Clone(newContact, contact);
 
-            return UpdateCore(id, contact);
+                    return newContact;
         }
 
         protected abstract Contact AddCore( Contact contact );
@@ -80,6 +74,25 @@ namespace ContactManager
             };
             return null;
         }
+
+        private void Clone( Contact target, Contact source )
+        {
+            target.Id = source.Id;
+            target.Name = source.Name;
+            target.Email = source.Email;
+        }
+
+        private int getindex( int id )
+        {
+            for (var index = 0; index < _items.Count; ++index)
+                return index;
+
+            return -1;
+        }
+
+        private readonly List<Contact> _items = new List<Contact>();
+
+        private int _nextid = 0;
 
         protected abstract Contact GetCore( int id );
 
