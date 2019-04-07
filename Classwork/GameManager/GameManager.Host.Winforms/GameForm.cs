@@ -89,7 +89,7 @@ namespace GameManager.Host.Winforms
             game.Completed = _cbCompleted.Checked;
 
             //Demoing ctor
-            var game2 = new Game(_txtName.Text, ReadDecimal(_txtPrice));
+            //var game2 = new Game(_txtName.Text, ReadDecimal(_txtPrice));
 
             return game;
         }
