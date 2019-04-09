@@ -14,7 +14,8 @@ using System.Windows.Forms;
 
 namespace ContactManager.UI
 {
-    public partial class MainForm : Form
+    public partial class MainForm : Form, IMessageService
+  
     {
         public MainForm()
         {
@@ -173,7 +174,7 @@ namespace ContactManager.UI
             base.OnFormClosing(e);
         }
 
-        private void SendMessage ( string M)
+        public void SendMessage ( string M)
         {
 
         }
