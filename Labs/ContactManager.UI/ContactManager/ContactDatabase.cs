@@ -39,7 +39,7 @@ namespace ContactManager
         public IEnumerable<Contact> GetAll()
         {
             foreach (var item in _items)
-                return IEnumerable(_items);
+                return Clone(_items);
         }
 
         public Contact Update( int id, Contact contact )
