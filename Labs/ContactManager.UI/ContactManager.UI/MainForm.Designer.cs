@@ -39,9 +39,9 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this._contacts = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this._lstcontact = new System.Windows.Forms.ListBox();
             this._messages = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -143,7 +143,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this._contacts);
+            this.splitContainer1.Panel1.Controls.Add(this._lstcontact);
             // 
             // splitContainer1.Panel2
             // 
@@ -152,23 +152,14 @@
             this.splitContainer1.SplitterDistance = 233;
             this.splitContainer1.TabIndex = 1;
             // 
-            // _contacts
+            // _lstcontact
             // 
-            this._contacts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._contacts.FormattingEnabled = true;
-            this._contacts.Location = new System.Drawing.Point(0, 0);
-            this._contacts.Name = "_contacts";
-            this._contacts.Size = new System.Drawing.Size(233, 387);
-            this._contacts.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(332, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Messages";
+            this._lstcontact.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._lstcontact.FormattingEnabled = true;
+            this._lstcontact.Location = new System.Drawing.Point(0, 0);
+            this._lstcontact.Name = "_lstcontact";
+            this._lstcontact.Size = new System.Drawing.Size(233, 387);
+            this._lstcontact.TabIndex = 0;
             // 
             // _messages
             // 
@@ -179,6 +170,15 @@
             this._messages.Size = new System.Drawing.Size(247, 387);
             this._messages.TabIndex = 0;
             this._messages.Text = "_messages";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(332, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Messages";
             // 
             // MainForm
             // 
@@ -216,7 +216,7 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.ListBox _contacts;
+        private System.Windows.Forms.ListBox _lstcontact;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem sendToolStripMenuItem;
         private System.Windows.Forms.TextBox _messages;

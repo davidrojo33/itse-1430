@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ContactManager
 {
-    public abstract class ContactDatabase : IContactDatabase
+    public class ContactDatabase : IContactDatabase
     {
         public Contact Add( Contact contact )
         {
@@ -39,8 +39,8 @@ namespace ContactManager
         public IEnumerable<Contact> GetAll()
         {
             var temp = new List<Contact>();
-            foreach (var item in _items)
-                temp.Add(Clone(item));
+            foreach (var contact in _items)
+                temp.Add(Clone(contact));
 
             return temp.ToArray();
         }
@@ -64,13 +64,9 @@ namespace ContactManager
                     return newContact;
         }
 
-        protected abstract Contact AddCore( Contact contact );
-
-        protected abstract void DeleteCore( int id );
-
         protected virtual Contact FindByName( string name )
         {
-            foreach (var contact in GetAllCore())
+            foreach (var contact in GetAll())
             {
                 if (String.Compare(contact.Name, name, true) == 0)
                     return contact;
@@ -96,12 +92,6 @@ namespace ContactManager
         private readonly List<Contact> _items = new List<Contact>();
 
         private int _nextid = 0;
-
-        protected abstract Contact GetCore( int id );
-
-        protected abstract IEnumerable<Contact> GetAllCore();
-
-        protected abstract Contact UpdateCore( int id, Contact newContact );
     }
 
 }
