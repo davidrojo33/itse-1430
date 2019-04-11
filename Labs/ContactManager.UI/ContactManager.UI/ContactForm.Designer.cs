@@ -28,20 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this._name = new System.Windows.Forms.TextBox();
+            this.components = new System.ComponentModel.Container();
+            this._contacts = new System.Windows.Forms.TextBox();
             this._email = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.save = new System.Windows.Forms.Button();
+            this.cancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this._errors = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this._errors)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             this.SuspendLayout();
             // 
-            // _name
+            // _contacts
             // 
-            this._name.Location = new System.Drawing.Point(94, 42);
-            this._name.Name = "_name";
-            this._name.Size = new System.Drawing.Size(213, 20);
-            this._name.TabIndex = 0;
+            this._contacts.Location = new System.Drawing.Point(94, 42);
+            this._contacts.Name = "_contacts";
+            this._contacts.Size = new System.Drawing.Size(213, 20);
+            this._contacts.TabIndex = 0;
             // 
             // _email
             // 
@@ -49,26 +54,27 @@
             this._email.Name = "_email";
             this._email.Size = new System.Drawing.Size(213, 20);
             this._email.TabIndex = 1;
+            this._email.TextChanged += new System.EventHandler(this._email_TextChanged);
             // 
-            // button1
+            // save
             // 
-            this.button1.Location = new System.Drawing.Point(114, 216);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.OnSave);
+            this.save.Location = new System.Drawing.Point(114, 216);
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(75, 23);
+            this.save.TabIndex = 2;
+            this.save.Text = "Save";
+            this.save.UseVisualStyleBackColor = true;
+            this.save.Click += new System.EventHandler(this.OnSave);
             // 
-            // button2
+            // cancel
             // 
-            this.button2.Location = new System.Drawing.Point(206, 216);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.OnCancel);
+            this.cancel.Location = new System.Drawing.Point(206, 216);
+            this.cancel.Name = "cancel";
+            this.cancel.Size = new System.Drawing.Size(75, 23);
+            this.cancel.TabIndex = 3;
+            this.cancel.Text = "Cancel";
+            this.cancel.UseVisualStyleBackColor = true;
+            this.cancel.Click += new System.EventHandler(this.OnCancel);
             // 
             // label1
             // 
@@ -88,6 +94,14 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Email";
             // 
+            // _errors
+            // 
+            this._errors.ContainerControl = this;
+            // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
+            // 
             // ContactForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -95,13 +109,15 @@
             this.ClientSize = new System.Drawing.Size(334, 261);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.cancel);
+            this.Controls.Add(this.save);
             this.Controls.Add(this._email);
-            this.Controls.Add(this._name);
+            this.Controls.Add(this._contacts);
             this.Name = "ContactForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ContactForm";
+            ((System.ComponentModel.ISupportInitialize)(this._errors)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,11 +125,13 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox _name;
+        private System.Windows.Forms.TextBox _contacts;
         private System.Windows.Forms.TextBox _email;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button save;
+        private System.Windows.Forms.Button cancel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ErrorProvider _errors;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
     }
 }
