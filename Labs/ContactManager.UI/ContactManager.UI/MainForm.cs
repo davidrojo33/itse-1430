@@ -11,10 +11,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ContactManager;
 
 namespace ContactManager.UI
 {
-    public partial class MainForm : Form
+    public partial class MainForm : Form, IMessageService
+  
     {
         public MainForm()
         {
@@ -34,16 +36,17 @@ namespace ContactManager.UI
 
         private void BindList()
         {
-            _contacts.Items.Clear();
-            _contacts.DisplayMember = nameof(Contact.Name);
+            _lstcontact.Items.Clear();
+            _lstcontact.DisplayMember = nameof(Contact.Name);
+            var items = _contact.GetAll();
 
-            var items = _contacts.GetAll();
-
+            //items = items.OrderBy()
+            _lstcontact.Items.AddRange(items.ToArray());
         }
 
         private void LoadContacts( Contact contact )
         {
-            _contacts.Text = contact.Name;
+            _lstcontact.Text = contact.Name;
             _messages.Text = contact.Email;
         }
 
@@ -81,7 +84,7 @@ namespace ContactManager.UI
         {
             try
             {
-                //contacts.add(form.contact);
+                (form.Contact);
             } catch (NotImplementedException e)
             {
                 //rewriting an exception
@@ -144,7 +147,7 @@ namespace ContactManager.UI
 
         private Contact GetSelectedContact()
         {
-            var value = _contacts.SelectedItem;
+            var value = _lstcontact.SelectedItem;
 
             //Typesafe conversion
             //_ListGames.Items.OfType<Game>();
@@ -155,7 +158,7 @@ namespace ContactManager.UI
             //Preferred - null if not valid
             var contact = value as Contact;
 
-            return _contacts.SelectedItem as Contact;
+            return _lstcontact.SelectedItem as Contact;
         }
 
         private void OnContactSelected( object sender, EventArgs e )
@@ -173,9 +176,11 @@ namespace ContactManager.UI
             base.OnFormClosing(e);
         }
 
-        private void SendMessage ( string M)
+        public void SendMessage ( string M)
         {
 
         }
+
+        private IContactDatabase _contact = new ContactDatabase();
     }
 }
