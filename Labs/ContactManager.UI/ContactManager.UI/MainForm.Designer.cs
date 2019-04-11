@@ -92,7 +92,7 @@
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
             this.addToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Insert)));
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addToolStripMenuItem.Text = "Add";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.OnContactAdd);
             // 
@@ -100,7 +100,7 @@
             // 
             this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
             this.editToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.D0)));
-            this.editToolStripMenuItem1.Size = new System.Drawing.Size(145, 22);
+            this.editToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.editToolStripMenuItem1.Text = "Edit";
             this.editToolStripMenuItem1.Click += new System.EventHandler(this.OnContactEdit);
             // 
@@ -108,7 +108,7 @@
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             this.deleteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.DoubleClick += new System.EventHandler(this.OnContactDelete);
             // 
@@ -116,7 +116,7 @@
             // 
             this.sendToolStripMenuItem.Name = "sendToolStripMenuItem";
             this.sendToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D1)));
-            this.sendToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.sendToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sendToolStripMenuItem.Text = "Send";
             // 
             // helpToolStripMenuItem
@@ -169,7 +169,6 @@
             this._messages.Name = "_messages";
             this._messages.Size = new System.Drawing.Size(247, 387);
             this._messages.TabIndex = 0;
-            this._messages.Text = "_messages";
             // 
             // label1
             // 

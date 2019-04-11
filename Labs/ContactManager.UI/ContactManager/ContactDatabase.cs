@@ -23,7 +23,8 @@ namespace ContactManager
         public void Delete( int id )
         {
             var index = getindex(id);
-            if (index >= 0)
+            if (id <= 0)
+                throw new ArgumentOutOfRangeException(nameof(id), "Id must be > 0.");
             _items.RemoveAt(index);
         }
 

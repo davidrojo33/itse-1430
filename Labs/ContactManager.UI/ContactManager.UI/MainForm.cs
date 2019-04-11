@@ -34,14 +34,28 @@ namespace ContactManager.UI
             form.ShowDialog();
         }
 
+        //protected override void OnLoad( EventArgs e )
+        //{
+        //    base.OnLoad(e);
+
+        //    var contacts = _contact.GetAll();
+
+        //    BindList();
+        //}
+
         private void BindList()
         {
             _lstcontact.Items.Clear();
             _lstcontact.DisplayMember = nameof(Contact.Name);
             var items = _contact.GetAll();
 
-            //items = items.OrderBy()
+            items = items.OrderBy(GetName);
             _lstcontact.Items.AddRange(items.ToArray());
+        }
+
+        private string GetName ( Contact contact)
+        {
+            return contact.Name;
         }
 
         private void LoadContacts( Contact contact )
@@ -84,7 +98,7 @@ namespace ContactManager.UI
         {
             try
             {
-                (form.Contact);
+                _contact.Add(form.Contact);
             } catch (NotImplementedException e)
             {
                 //rewriting an exception
@@ -94,6 +108,8 @@ namespace ContactManager.UI
                 throw;
             };
         }
+
+        private IContactDatabase _contact;
 
         private void OnContactEdit( object sender, EventArgs e )
         {
@@ -140,9 +156,9 @@ namespace ContactManager.UI
 
             //TODO: Delete
             //DeleteGame(selected);
-            //_contacts.Delete(selected.Id);
+            _contact.Delete(selected.Id);
             BindList();
-            //_game = null;
+
         }
 
         private Contact GetSelectedContact()
@@ -161,11 +177,6 @@ namespace ContactManager.UI
             return _lstcontact.SelectedItem as Contact;
         }
 
-        private void OnContactSelected( object sender, EventArgs e )
-        {
-
-        }
-
         protected override void OnFormClosing( FormClosingEventArgs e )
         {
             if (MessageBox.Show(this, "Are you sure?", "Close", MessageBoxButtons.YesNo) == DialogResult.No)
@@ -178,9 +189,7 @@ namespace ContactManager.UI
 
         public void SendMessage ( string M)
         {
-
+            //_messages.Text += "/r" 
         }
-
-        private IContactDatabase _contact = new ContactDatabase();
     }
 }

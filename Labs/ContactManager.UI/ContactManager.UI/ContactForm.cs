@@ -52,33 +52,10 @@ namespace ContactManager.UI
             Close();
         }
 
-        private void OnContactAdd( object sender, EventArgs e )
+        private void LoadData( Contact contact)
         {
-            var form = new ContactForm();
-
-            while (true)
-            {
-                if (form.ShowDialog(this) != DialogResult.OK)
-                    return;
-
-                try
-                {
-                    //OnSafeAdd(form);
-                    break;
-                } catch (InvalidOperationException)
-                {
-                    MessageBox.Show(this, "Choose a better contact.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                } catch (Exception ex)
-                {
-                    DisplayError(ex);
-                };
-            };
-
-            BindList();
-        }
-
-        private void BindList()
-        { 
+            _contacts.Text = contact.Name;
+            _email.Text = contact.Email;
         }
 
         private void DisplayError( Exception ex )
@@ -93,6 +70,16 @@ namespace ContactManager.UI
             contact.Email = _email.Text;
 
             return contact;
+        }
+
+        protected override void OnLoad( EventArgs e )
+        {
+            base.OnLoad(e);
+
+            if (Contact != null)
+                LoadData(Contact);
+
+            ValidateChildren();
         }
 
         private void OnValidatContact( object sender, System.ComponentModel.CancelEventArgs e )
