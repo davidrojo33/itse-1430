@@ -38,8 +38,11 @@ namespace ContactManager
 
         public IEnumerable<Contact> GetAll()
         {
+            var temp = new List<Contact>();
             foreach (var item in _items)
-                yield return Clone(item);
+                temp.Add(Clone(item));
+
+            return temp.ToArray();
         }
 
         public Contact Update( int id, Contact contact )
