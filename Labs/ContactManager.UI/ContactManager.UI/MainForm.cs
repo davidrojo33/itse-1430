@@ -34,14 +34,14 @@ namespace ContactManager.UI
             form.ShowDialog();
         }
 
-        //protected override void OnLoad( EventArgs e )
-        //{
-        //    base.OnLoad(e);
+        protected override void OnLoad( EventArgs e )
+        {
+            base.OnLoad(e);
 
-        //    var contacts = _contact.GetAll();
+            var contacts = _contact.GetAll();
 
-        //    BindList();
-        //}
+            BindList();
+        }
 
         private void BindList()
         {
@@ -61,7 +61,7 @@ namespace ContactManager.UI
         private void LoadContacts( Contact contact )
         {
             _lstcontact.Text = contact.Name;
-            _messages.Text = contact.Email;
+            //_messages.Text = contact.Email;
         }
 
         private void OnContactAdd( object sender, EventArgs e )
@@ -109,7 +109,7 @@ namespace ContactManager.UI
             };
         }
 
-        private IContactDatabase _contact;
+        private IContactDatabase _contact = new ContactDatabase();
 
         private void OnContactEdit( object sender, EventArgs e )
         {
@@ -130,7 +130,7 @@ namespace ContactManager.UI
                 try
                 {
                     //UpdateGame(game, form.Game);            
-                    //_contacts.Update(contact.Id, form.Contact);
+                    _contact.Update(contact.Id, form.Contact);
                     break;
                 } catch (Exception ex)
                 {
@@ -154,9 +154,14 @@ namespace ContactManager.UI
                                MessageBoxIcon.Question) != DialogResult.Yes)
                 return;
 
-            //TODO: Delete
-            //DeleteGame(selected);
-            _contact.Delete(selected.Id);
+            try
+            {
+                //DeleteGame(selected);
+                _contact.Delete(selected.Id);
+            } catch (Exception ex)
+            {
+                DisplayError(ex);
+            };
             BindList();
 
         }
@@ -187,9 +192,9 @@ namespace ContactManager.UI
             base.OnFormClosing(e);
         }
 
-        public void SendMessage ( string M)
+        public void SendMessage ( string M )
         {
-            //_messages.Text += "/r" 
+            var form = new MessageForm();
         }
     }
 }

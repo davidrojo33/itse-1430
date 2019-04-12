@@ -110,7 +110,7 @@
             this.deleteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
-            this.deleteToolStripMenuItem.DoubleClick += new System.EventHandler(this.OnContactDelete);
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.OnContactDelete);
             // 
             // sendToolStripMenuItem
             // 
