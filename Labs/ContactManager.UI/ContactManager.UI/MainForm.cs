@@ -196,7 +196,7 @@ namespace ContactManager.UI
         {
             var form = new MessageForm();
 
-            
+            //form
         }
 
         public void SendMessage( string M )
