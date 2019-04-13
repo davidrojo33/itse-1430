@@ -10,7 +10,8 @@ using System.Threading.Tasks;
 
 namespace ContactManager
 {
-    class Message
+    public class Message
     {
+        //var _form = OnSendMessage();
     }
 }

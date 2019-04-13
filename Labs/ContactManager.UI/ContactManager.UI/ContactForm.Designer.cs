@@ -116,6 +116,7 @@
             this.Name = "ContactForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ContactForm";
+            this.Click += new System.EventHandler(this._email_TextChanged);
             ((System.ComponentModel.ISupportInitialize)(this._errors)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             this.ResumeLayout(false);

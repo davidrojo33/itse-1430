@@ -192,9 +192,14 @@ namespace ContactManager.UI
             base.OnFormClosing(e);
         }
 
-        public void SendMessage ( string M )
+        private void OnSendMessage( object sender, EventArgs e )
         {
-            var form = new MessageForm();
+            _messages.Text += ($" _subject, _message");
+        }
+
+        public void SendMessage( string M )
+        {
+            
         }
     }
 }

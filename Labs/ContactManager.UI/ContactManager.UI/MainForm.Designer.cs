@@ -118,6 +118,7 @@
             this.sendToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D1)));
             this.sendToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sendToolStripMenuItem.Text = "Send";
+            this.sendToolStripMenuItem.Click += new System.EventHandler(this.OnSendMessage);
             // 
             // helpToolStripMenuItem
             // 
