@@ -196,7 +196,10 @@ namespace ContactManager.UI
         {
             var form = new MessageForm();
 
-            //form
+            if (form.ShowDialog(this) != DialogResult.OK)
+                return;
+
+
         }
 
         public void SendMessage( string M )

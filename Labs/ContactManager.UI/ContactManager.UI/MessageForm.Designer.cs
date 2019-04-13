@@ -42,7 +42,6 @@
             this._subject.Name = "_subject";
             this._subject.Size = new System.Drawing.Size(228, 20);
             this._subject.TabIndex = 0;
-            this._subject.Text = "_subject";
             // 
             // label1
             // 
@@ -61,6 +60,7 @@
             this.send.TabIndex = 3;
             this.send.Text = "Send";
             this.send.UseVisualStyleBackColor = true;
+            this.send.Click += new System.EventHandler(this.OnSendMessage);
             // 
             // button2
             // 
@@ -87,7 +87,6 @@
             this._body.Name = "_body";
             this._body.Size = new System.Drawing.Size(228, 20);
             this._body.TabIndex = 6;
-            this._body.Text = "_body";
             // 
             // MessageForm
             // 

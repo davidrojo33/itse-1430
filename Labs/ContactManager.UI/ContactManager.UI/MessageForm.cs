@@ -22,25 +22,49 @@ namespace ContactManager.UI
             InitializeComponent();
         }
 
+        public Message message { get; set; }
+
+        public Contact contact { get; set; }
+
+
+
         private void OnCancel( object sender, EventArgs e )
         {
             Close();
         }
 
-        private void SendMessage( string M )
+        public void SaveData()
         {
 
+            message.Subject = _subject.Text;
+            message.Body = _body.Text;
+
+            return;
         }
 
-        private Contact SaveData()
+        private void OnSave( object sender, EventArgs e )
         {
-            var contact = new Contact();
-            contact.Name = _body.Text;
-            contact.Email = _body.Text;
+            if (!ValidateChildren())
+                return;
 
-            return contact;
+            //var message = SaveData();
+
+            try
+            {
+                //new ObjectValidator().Validate(game);
+                ObjectValidator.Validate(contact);
+            } catch (ValidationException)
+            {
+                MessageBox.Show(this, "Contact not valid.", "Error", MessageBoxButtons.OK);
+                return;
+            };
+
+            //Message = message;
+            DialogResult = DialogResult.OK;
+            Close();
         }
-        private void BindList()
+
+        private void OnSendMessage( object sender, EventArgs e )
         {
 
         }
