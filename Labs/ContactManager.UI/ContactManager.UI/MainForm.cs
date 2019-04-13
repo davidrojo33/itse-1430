@@ -194,7 +194,9 @@ namespace ContactManager.UI
 
         private void OnSendMessage( object sender, EventArgs e )
         {
-            _messages.Text += ($" _subject, _message");
+            var form = new MessageForm();
+
+            
         }
 
         public void SendMessage( string M )

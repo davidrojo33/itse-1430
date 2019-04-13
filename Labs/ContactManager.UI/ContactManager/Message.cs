@@ -12,6 +12,6 @@ namespace ContactManager
 {
     public class Message
     {
-        //var _form = OnSendMessage();
+        //_messages.Text += ($" Subject: {_messages}, Message: { _messages}");
     }
 }
