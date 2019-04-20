@@ -47,5 +47,11 @@
     <Compile Include="Stores\MemoryProductDatabase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GameDB\GameDB.sqlproj">
+      <Project>{e0b40936-ddcf-4e6d-98c5-4e3c2a693656}</Project>
+      <Name>GameDB</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
