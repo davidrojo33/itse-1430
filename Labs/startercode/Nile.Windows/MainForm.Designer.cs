@@ -46,6 +46,8 @@ namespace Nile.Windows
             this.isDiscontinuedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._bsProducts = new System.Windows.Forms.BindingSource(this.components);
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._mainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._gridProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._bsProducts)).BeginInit();
@@ -55,7 +57,8 @@ namespace Nile.Windows
             // 
             this._mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.productToolStripMenuItem});
+            this.productToolStripMenuItem,
+            this.helpToolStripMenuItem});
             this._mainMenu.Location = new System.Drawing.Point(0, 0);
             this._mainMenu.Name = "_mainMenu";
             this._mainMenu.Size = new System.Drawing.Size(827, 24);
@@ -93,27 +96,27 @@ namespace Nile.Windows
             // 
             this._miProductAdd.Name = "_miProductAdd";
             this._miProductAdd.ShortcutKeys = System.Windows.Forms.Keys.Insert;
-            this._miProductAdd.Size = new System.Drawing.Size(131, 22);
+            this._miProductAdd.Size = new System.Drawing.Size(180, 22);
             this._miProductAdd.Text = "&Add";
             this._miProductAdd.Click += new System.EventHandler(this.OnProductAdd);
             // 
             // _miProductEdit
             // 
             this._miProductEdit.Name = "_miProductEdit";
-            this._miProductEdit.Size = new System.Drawing.Size(131, 22);
+            this._miProductEdit.Size = new System.Drawing.Size(180, 22);
             this._miProductEdit.Text = "&Edit";
             this._miProductEdit.Click += new System.EventHandler(this.OnProductEdit);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(128, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // _miProductDelete
             // 
             this._miProductDelete.Name = "_miProductDelete";
             this._miProductDelete.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this._miProductDelete.Size = new System.Drawing.Size(131, 22);
+            this._miProductDelete.Size = new System.Drawing.Size(180, 22);
             this._miProductDelete.Text = "&Delete";
             this._miProductDelete.Click += new System.EventHandler(this.OnProductDelete);
             // 
@@ -199,6 +202,20 @@ namespace Nile.Windows
             this._bsProducts.AllowNew = false;
             this._bsProducts.DataSource = typeof(Nile.Product);
             // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,6 +253,8 @@ namespace Nile.Windows
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isDiscontinuedDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
 
