@@ -32,6 +32,12 @@ namespace Nile.Windows
             Close();
         }
 
+        private void OnHelpAbout( object sender, EventArgs e )
+        {
+            var form = new AboutBox();
+            form.ShowDialog();
+        }
+
         private void OnProductAdd( object sender, EventArgs e )
         {
             var child = new ProductDetailForm("Product Details");
