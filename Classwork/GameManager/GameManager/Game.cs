@@ -13,6 +13,7 @@ namespace GameManager
         public int Id { get; set; }
 
         /// <summary>Name of the game.</summary>
+        [Required(AllowEmptyStrings = false)]
         public string Name
         {
             //get { return _name ?? ""; }
@@ -29,6 +30,7 @@ namespace GameManager
             get => _description ?? "";
             set => _description = value;
         }
+
         private string _description = "";
 
         //Calculated property
@@ -47,6 +49,8 @@ namespace GameManager
         //}
 
         //Auto property
+
+        [RangeAttribute(0, Double.MaxValue, ErrorMessage = "Price must be >= 0." )]
         public decimal Price { get; set; }
 
         //public decimal Price
@@ -83,13 +87,13 @@ namespace GameManager
         {
             var items = new List<ValidationResult>();
 
-            //Name is required
-            if (String.IsNullOrEmpty(Name))
-                items.Add(new ValidationResult("Name is required.", new[] { nameof(Name) }));
+            ////Name is required
+            //if (String.IsNullOrEmpty(Name))
+            //    items.Add(new ValidationResult("Name is required.", new[] { nameof(Name) }));
 
             //Price >= 0
-            if (Price < 0)
-                items.Add(new ValidationResult("Price must be >= 0.", new[] { nameof(Price) }));
+            //if (Price < 0)
+            //    items.Add(new ValidationResult("Price must be >= 0.", new[] { nameof(Price) }));
 
             return items;
         }
