@@ -14,9 +14,12 @@ namespace Nile.Stores
         /// <returns>The added product.</returns>
         public Product Add ( Product product )
         {
-            //TODO: Check arguments
+            // Check arguments
+            if (product == null)
+                throw new ArgumentException(nameof(product));
 
-            //TODO: Validate product
+            //Validate product
+            ObjectValidator.Validate(product);
 
             //Emulate database by storing copy
             return AddCore(product);
@@ -26,7 +29,9 @@ namespace Nile.Stores
         /// <returns>The product, if it exists.</returns>
         public Product Get ( int id )
         {
-            //TODO: Check arguments
+            //Check arguments
+            if (id <= 0)
+                throw new ArgumentOutOfRangeException(nameof(id), "Id must be > 0.");
 
             return GetCore(id);
         }
@@ -42,7 +47,10 @@ namespace Nile.Stores
         /// <param name="id">The product to remove.</param>
         public void Remove ( int id )
         {
-            //TODO: Check arguments
+            // Check arguments
+            if (id <= 0)
+                throw new ArgumentOutOfRangeException(nameof(id), "Id must be > 0.");
+
 
             RemoveCore(id);
         }
@@ -50,11 +58,16 @@ namespace Nile.Stores
         /// <summary>Updates a product.</summary>
         /// <param name="product">The product to update.</param>
         /// <returns>The updated product.</returns>
-        public Product Update ( Product product )
+        public Product Update ( int id, Product product )
         {
-            //TODO: Check arguments
+            //Check arguments
+            if (id <= 0)
+                throw new ArgumentOutOfRangeException(nameof(id), "Id must be > 0");
+            if (product == null)
+                throw new ArgumentNullException(nameof(product));
 
-            //TODO: Validate product
+            //Validate product
+            ObjectValidator.Validate(product);
 
             //Get existing product
             var existing = GetCore(product.Id);

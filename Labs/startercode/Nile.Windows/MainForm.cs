@@ -45,6 +45,7 @@ namespace Nile.Windows
                 return;
 
             //TODO: Handle errors
+
             //Save product
             _database.Add(child.Product);
             UpdateList();
@@ -111,6 +112,7 @@ namespace Nile.Windows
                 return;
 
             //TODO: Handle errors
+
             //Delete product
             _database.Remove(product.Id);
             UpdateList();
@@ -124,6 +126,15 @@ namespace Nile.Windows
                 return;
 
             //TODO: Handle errors
+            try
+            {
+                _miProductEdit.Update(product.Id, child.Product);
+                break;
+            } catch (Exception ex)
+            {
+                //DisplayError(ex);
+            }
+
             //Save product
             _database.Update(child.Product);
             UpdateList();
