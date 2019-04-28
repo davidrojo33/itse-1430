@@ -3,6 +3,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Nile.Stores
 {
@@ -20,6 +21,10 @@ namespace Nile.Stores
 
             //Validate product
             ObjectValidator.Validate(product);
+
+            var existing = FindByName(product.Name);
+            if (existing != null)
+                throw new Exception("Game must be unique.");
 
             //Emulate database by storing copy
             return AddCore(product);
@@ -45,6 +50,7 @@ namespace Nile.Stores
         
         /// <summary>Removes the product.</summary>
         /// <param name="id">The product to remove.</param>
+
         public void Remove ( int id )
         {
             // Check arguments
@@ -58,21 +64,31 @@ namespace Nile.Stores
         /// <summary>Updates a product.</summary>
         /// <param name="product">The product to update.</param>
         /// <returns>The updated product.</returns>
-        public Product Update ( int id, Product product )
+        public Product Update (Product product )
         {
             //Check arguments
-            if (id <= 0)
-                throw new ArgumentOutOfRangeException(nameof(id), "Id must be > 0");
+            if (product.Id <= 0)
+                throw new ArgumentOutOfRangeException(nameof(product.Id), "Id must be > 0");
             if (product == null)
                 throw new ArgumentNullException(nameof(product));
 
             //Validate product
             ObjectValidator.Validate(product);
 
+            var sameName = FindByName(product.Name);
+            if (sameName != null && sameName.Id != product.Id)
+                throw new Exception("Product must be unique.");
             //Get existing product
             var existing = GetCore(product.Id);
 
             return UpdateCore(existing, product);
+        }
+
+        protected virtual Product FindByName( string name )
+        {
+            return (from product in GetAllCore()
+                    where String.Compare(product.Name, name, true) == 0
+                    select product).FirstOrDefault();
         }
 
         #region Protected Members

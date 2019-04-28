@@ -1,4 +1,5 @@
-/*
+/* David Rojo
+ * 4/28/19
  * ITSE 1430
  */
 using System;
@@ -76,7 +77,7 @@ namespace Nile.Windows
                 ObjectValidator.Validate(product);
             } catch (ValidationException)
             {
-                MessageBox.Show(this, "Game not valid.", "Error", MessageBoxButtons.OK);
+                MessageBox.Show(this, "Product not valid.", "Error", MessageBoxButtons.OK);
                 return;
             };
 

@@ -1,4 +1,6 @@
 /*
+ * David Rojo
+ * 4/28/19
  * ITSE 1430
  */
 using System;
@@ -25,7 +27,7 @@ namespace Nile.Windows
             UpdateList();
         }
 
-        #region Event Handlers
+        #region Event Handlers5
         
         private void OnFileExit( object sender, EventArgs e )
         {
@@ -41,13 +43,23 @@ namespace Nile.Windows
         private void OnProductAdd( object sender, EventArgs e )
         {
             var child = new ProductDetailForm("Product Details");
-            if (child.ShowDialog(this) != DialogResult.OK)
-                return;
 
-            //TODO: Handle errors
+            while (true)
+            {
+                if (child.ShowDialog(this) != DialogResult.OK)
+                    return;
 
-            //Save product
-            _database.Add(child.Product);
+                // Handle errors
+                try
+                {
+                    _database.Add(child.Product);
+                    break;
+                } catch (Exception ex)
+                {
+                    //Recover from errors
+                    DisplayError(ex);
+                };
+            }
             UpdateList();
         }
 
@@ -111,10 +123,14 @@ namespace Nile.Windows
                                 "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
 
-            //TODO: Handle errors
-
-            //Delete product
-            _database.Remove(product.Id);
+            //Handle errors
+            try
+            {
+                _database.Remove(product.Id);
+            } catch (Exception ex)
+            {
+                DisplayError(ex);
+            }
             UpdateList();
         }
 
@@ -125,18 +141,23 @@ namespace Nile.Windows
             if (child.ShowDialog(this) != DialogResult.OK)
                 return;
 
-            //TODO: Handle errors
-            try
-            {
-                _miProductEdit.Update(product.Id, child.Product);
-                break;
-            } catch (Exception ex)
-            {
-                //DisplayError(ex);
-            }
+            //Handle errors
 
-            //Save product
-            _database.Update(child.Product);
+            while (true)
+            {
+                if (child.ShowDialog(this) != DialogResult.OK)
+                    return;
+
+                try
+                {            
+                    _database.Update(child.Product);
+                    break;
+                } catch (Exception ex)
+                {
+                    DisplayError(ex);
+                };
+            };
+
             UpdateList();
         }
 
@@ -150,9 +171,20 @@ namespace Nile.Windows
 
         private void UpdateList ()
         {
-            //TODO: Handle errors
+            //Handle errors
+            try
+            {
+                _bsProducts.DataSource = _database.GetAll();
 
-            _bsProducts.DataSource = _database.GetAll();
+            } catch (Exception ex)
+            {
+                DisplayError(ex);
+            }
+        }
+
+        private void DisplayError( Exception ex )
+        {
+            MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private readonly IProductDatabase _database = new Nile.Stores.MemoryProductDatabase();
