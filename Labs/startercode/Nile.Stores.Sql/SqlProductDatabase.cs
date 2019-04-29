@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Nile.Stores.Sql
 {
-    public class SqlProductDatabase : ProductDatabase
+    public class SqlProductDatabase : IProductDatabase
     {
         public SqlProductDatabase( string connectionString )
         {
@@ -17,7 +17,21 @@ namespace Nile.Stores.Sql
 
         private readonly string _connectionString;
 
-        protected override Product AddCore( Product product )
+        private SqlConnection GetConnection()
+        {
+            return new SqlConnection(_connectionString);
+        }
+
+        private string GetString( IDataReader reader, string name )
+        {
+            var ordinal = reader.GetOrdinal(name);
+
+            if (reader.IsDBNull(ordinal))
+                return "";
+            return reader.GetString(ordinal);
+        }
+
+        public Product Add( Product product )
         {
             using (var connection = GetConnection())
             {
@@ -42,30 +56,38 @@ namespace Nile.Stores.Sql
             };
         }
 
-        private SqlConnection GetConnection()
+        public Product Get( int id )
         {
-            return new SqlConnection(_connectionString);
-        }
-
-        protected override void DeleteCore( int id )
-        {
-            using (var connection = GetConnection())
+            using (var conn = GetConnection())
             {
-                connection.Open();
-
-                //var cmd = new SqlCommand("", connection);
-                var cmd = connection.CreateCommand();
-                cmd.CommandText = "DeleteProduct";
-                cmd.CommandType = CommandType.StoredProcedure;
-                
+                var cmd = conn.CreateCommand();
+                cmd.CommandText = "GetProducts";
                 cmd.Parameters.AddWithValue("@id", id);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                //No results
-                cmd.ExecuteNonQuery();
-            };
+                conn.Open();
+
+                var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    var productId = reader.GetInt32(0);
+                    if (productId == id)
+                    {
+                        var ordinal = reader.GetOrdinal("Name");
+
+                        return new Product() {
+                            Id = productId,
+                            Name = GetString(reader, "Name"),
+                            Price = reader.GetFieldValue<decimal>(3),
+                        };
+                    };
+                };
+            }
+
+            return null;
         }
 
-        protected override IEnumerable<Product> GetAllCore()
+        public IEnumerable<Product> GetAll()
         {
             var ds = new DataSet();
 
@@ -94,46 +116,25 @@ namespace Nile.Stores.Sql
             return Enumerable.Empty<Product>();
         }
 
-        protected override Product GetCore( int id )
+        public void Remove( int id )
         {
-            using (var conn = GetConnection())
+            using (var connection = GetConnection())
             {
-                var cmd = conn.CreateCommand();
-                cmd.CommandText = "GetProducts";
+                connection.Open();
+
+                //var cmd = new SqlCommand("", connection);
+                var cmd = connection.CreateCommand();
+                cmd.CommandText = "DeleteProduct";
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                conn.Open();
+                cmd.Parameters.AddWithValue("@id", id);
 
-                var reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    var productId = reader.GetInt32(0);
-                    if (productId == id)
-                    {
-                        var ordinal = reader.GetOrdinal("Name");
-
-                        return new Product() {
-                            Id = productId,
-                            Name = GetString(reader, "Name"),
-                            Price = reader.GetFieldValue<decimal>(3),
-                        };
-                    };
-                };
-            }
-
-            return null;
+                //No results
+                cmd.ExecuteNonQuery();
+            };
         }
 
-        private string GetString( IDataReader reader, string name )
-        {
-            var ordinal = reader.GetOrdinal(name);
-
-            if (reader.IsDBNull(ordinal))
-                return "";
-            return reader.GetString(ordinal);
-        }
-
-        protected override Product UpdateCore( int id, Product product )
+        public Product Update( Product product )
         {
             using (var connection = GetConnection())
             {
@@ -151,23 +152,13 @@ namespace Nile.Stores.Sql
 
                 //Add paramter 2
                 cmd.Parameters.AddWithValue("@price", product.Price);
-                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@id", product.Id);
 
                 //No results
                 cmd.ExecuteNonQuery();
             };
 
             return product;
-        }
-
-        protected override void RemoveCore( int id )
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override Product UpdateCore( Product existing, Product newItem )
-        {
-            throw new NotImplementedException();
         }
     }
 }
