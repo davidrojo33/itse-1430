@@ -187,7 +187,7 @@ namespace Nile.Windows
             MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private readonly IProductDatabase _database = new Nile.Stores.MemoryProductDatabase();
+        private readonly IProductDatabase _database = new Nile.Stores.SqlProductDatabase();
         #endregion
     }
 }

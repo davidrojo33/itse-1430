@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace Nile.Stores
 {
     /// <summary>Base class for product database.</summary>
-    public class MemoryProductDatabase : ProductDatabase
+    public class SqlProductDatabase : ProductDatabase
     {        
         /// <summary>Adds a product.</summary>
         /// <param name="product">The product to add.</param>
