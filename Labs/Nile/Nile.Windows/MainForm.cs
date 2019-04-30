@@ -175,9 +175,10 @@ namespace Nile.Windows
             //Handle errors
             try
             {
-                var products = _bsProducts.GetAll().OrderBy(c => c.Name);
+                var products = _database.GetAll();
+                products = products.OrderBy(c => c.Name);
 
-                _bsProducts.Id.AddRange(products.ToArray());
+                _database.Items.AddRange(products.ToArray());
             } catch (Exception ex)
             {
                 DisplayError(ex);
