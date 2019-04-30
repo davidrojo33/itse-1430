@@ -48,6 +48,8 @@ namespace Nile.Stores.Sql
 
                 //Add paramter 2
                 cmd.Parameters.AddWithValue("@price", product.Price);
+                cmd.Parameters.AddWithValue("@description", product.Description);
+                cmd.Parameters.AddWithValue("@isdiscontinued", product.IsDiscontinued);
 
                 var result = Convert.ToInt32(cmd.ExecuteScalar());
 
