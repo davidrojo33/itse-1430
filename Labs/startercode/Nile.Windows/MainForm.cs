@@ -171,15 +171,17 @@ namespace Nile.Windows
 
         private void UpdateList ()
         {
+            _bsProducts.Clear();
             //Handle errors
             try
             {
-                _bsProducts.DataSource = _database.GetAll();
+                var products = _bsProducts.GetAll().OrderBy(c => c.Name);
 
+                _bsProducts.Id.AddRange(products.ToArray());
             } catch (Exception ex)
             {
                 DisplayError(ex);
-            }
+            };
         }
 
         private void DisplayError( Exception ex )
