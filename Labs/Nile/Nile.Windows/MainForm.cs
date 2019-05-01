@@ -5,6 +5,7 @@
  */
 using System;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace Nile.Windows
 {
@@ -175,10 +176,9 @@ namespace Nile.Windows
             //Handle errors
             try
             {
-                var products = _database.GetAll();
-                products = products.OrderBy(c => c.Name);
+                var products = _database.GetAll().OrderBy(c => c.Name);
 
-                _database.Items.AddRange(products.ToArray());
+                _bsProducts.Add(products.ToArray());
             } catch (Exception ex)
             {
                 DisplayError(ex);
