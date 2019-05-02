@@ -87,6 +87,9 @@ namespace GameManager
         {
             var items = new List<ValidationResult>();
 
+            if (Price > 1000)
+                items.Add(new ValidationResult("Price too expensive.", new[] { nameof(Price) }));
+
             ////Name is required
             //if (String.IsNullOrEmpty(Name))
             //    items.Add(new ValidationResult("Name is required.", new[] { nameof(Name) }));
@@ -97,10 +100,6 @@ namespace GameManager
 
             return items;
         }
-    }
-
-    public interface IValidatableObject
-    {
     }
 }
 

@@ -36,11 +36,21 @@ namespace GameManager.Mvc.Controllers
         [HttpPost]
         public ActionResult Create( Game model )
         {
-            var db = GetDatabase();
+            if (ModelState.IsValid)
+            {
+                var db = GetDatabase();
+                try
+                {
+                    var game = db.Add(model);
 
-            var game = db.Add(model);
+                    return RedirectToAction("Index");
+                } catch (Exception e)
+                {
+                    ModelState.AddModelError("", e.Message);
+                }
+            }
 
-            return RedirectToAction("Index");
+            return View(model);
         }
 
         public ActionResult Edit ( int id )
@@ -56,11 +66,22 @@ namespace GameManager.Mvc.Controllers
         [HttpPost]
         public ActionResult Edit ( Game model)
         {
-            var db = GetDatabase();
+            if (ModelState.IsValid)
+            {
+                var db = GetDatabase();
 
-            var game = db.Update(model.Id, model);
+                try
+                {
+                    var game = db.Update(model.Id, model);
 
-            return RedirectToAction("Index");
+                    return RedirectToAction("Index");
+                } catch (Exception e)
+                {
+                    ModelState.AddModelError("", e.Message);
+                }
+            };
+
+            return View(model);
         }
 
         public ActionResult Delete ( int id )
@@ -78,9 +99,17 @@ namespace GameManager.Mvc.Controllers
         {
             var db = GetDatabase();
 
-            db.Delete(model.Id);
+            try
+            {
+                db.Delete(model.Id);
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            } catch (Exception e)
+            {
+                ModelState.AddModelError("", e.Message);
+            };
+
+            return View(model);
         }
     }
 }
