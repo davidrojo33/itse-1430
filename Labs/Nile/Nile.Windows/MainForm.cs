@@ -139,8 +139,6 @@ namespace Nile.Windows
         {
             var child = new ProductDetailForm("Product Details");
             child.Product = product;
-            if (child.ShowDialog(this) != DialogResult.OK)
-                return;
 
             //Handle errors
 
@@ -178,7 +176,7 @@ namespace Nile.Windows
             {
                 var products = _database.GetAll().OrderBy(c => c.Name);
 
-                _bsProducts.Add(products.ToArray());
+                _bsProducts.DataSource=products;
             } catch (Exception ex)
             {
                 DisplayError(ex);

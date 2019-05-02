@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * David Rojo
+ * 4/28/19
+ * ITSE 1430
+ */
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -142,7 +147,6 @@ namespace Nile.Stores.Sql
             {
                 connection.Open();
 
-                //var cmd = new SqlCommand("", connection);
                 var cmd = connection.CreateCommand();
                 cmd.CommandText = "UpdateProduct";
                 cmd.CommandType = CommandType.StoredProcedure;
