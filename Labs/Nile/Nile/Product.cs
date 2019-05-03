@@ -48,8 +48,11 @@ namespace Nile
             if (String.IsNullOrEmpty(Name))
             items.Add(new ValidationResult("Name is required.", new[] { nameof(Name) }));
 
-            //TODOprice
-            //id
+            if (Price < 0)
+                items.Add(new ValidationResult("Price must be >= 0. ", new[] { nameof(Price) }));
+
+            if (Id < 0)
+                items.Add(new ValidationResult("Id must be >= 0. ", new[] { nameof(Id) }));
 
             return items;
         }
